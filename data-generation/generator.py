@@ -11,7 +11,7 @@ Requires:
 import random
 import uuid
 from dataclasses import dataclass
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
 from typing import Dict, List, Optional, Tuple
 
 import numpy as np
@@ -124,7 +124,7 @@ def _dob_to_mixed_string(d: date) -> str:
     return d.strftime(fmt)
 
 def _now_ts() -> datetime:
-    return datetime.utcnow().replace(microsecond=0)
+    return datetime.now(timezone.utc).replace(microsecond=0)
 
 def _normalize_bad_rate(bad_rate: float) -> float:
     # If user passes 3 meaning "3%", convert to 0.03
@@ -135,12 +135,16 @@ def _normalize_bad_rate(bad_rate: float) -> float:
             raise ValueError("bad_rate must be in [0,1] or [0,100] as percent.")
     return max(0.0, min(1.0, float(bad_rate)))
 
+def should_inject_bad_data(bad_rate: float) -> bool:
+    """Helper to decide whether to inject bad data based on bad_rate."""
+    bad_rate = _normalize_bad_rate(bad_rate)
+    return bad_rate > 0 and (random.random() < bad_rate)
+
 # ----------------------------
 # Bad data injection
 # ----------------------------
 
 BAD_ERROR_TYPES = [
-    "missing_required",
     "invalid_age",
     "negative_income",
     "nonsense_zip",
@@ -177,17 +181,7 @@ def inject_bad_data_record(record: dict,
     error_type = np.random.choice(keys, p=w)
 
     # Apply an error depending on schema
-    if error_type == "missing_required":
-        # knock out a common required field
-        candidates = {
-            "A": ["resident_id", "dob", "household_id"],
-            "B": ["person_uuid", "dob_str", "county"],
-            "C": ["doc_id", "profile_json", "county_fips"],
-        }[schema]
-        k = random.choice(candidates)
-        record[k] = None
-    
-    elif error_type == "invalid_age":
+    if error_type == "invalid_age":
         # set DOB to future date or absurd old
         if schema == "A":
             record["dob"] = date.today() + timedelta(days=random.randint(1, 3650))
@@ -212,13 +206,13 @@ def inject_bad_data_record(record: dict,
 
     elif error_type == "nonsense_zip":
         if schema == "A":
-            record["zip5"] = "ABCDE"
+            record["zip"] = "ABCDE"
         elif schema == "B":
             # embed nonsense in address
             record["full_address"] = (record.get("full_address") or "") + " ZIP=XXXXX"
         else:
             pj = record["profile_json"]
-            pj["location"]["zip5"] = "12"
+            pj["location"]["zip"] = "12"
             record["profile_json"] = pj
 
     elif error_type == "wrong_type":
@@ -238,7 +232,7 @@ def inject_bad_data_record(record: dict,
             record["gender_code"] = "Z"
             record["race_code"] = "?"
         elif schema == "A":
-            record["sex"] = "Unknownish"
+            record["sex"] = "U"
         else:
             pj = record["profile_json"]
             pj["demographics"]["race"] = 999
@@ -246,13 +240,13 @@ def inject_bad_data_record(record: dict,
 
     elif error_type == "stale_timestamp":
         # updated timestamp far in the past
-        stale = datetime(1999, 1, 1, 0, 0, 0)
+        stale = datetime(1999, 1, 1, 0, 0, 0, tzinfo=timezone.utc)
         if schema == "A":
-            record["created_at"] = stale
+            record["created_at_utc"] = stale
         elif schema == "B":
-            record["updated_ts"] = stale
+            record["updated_ts_utc"] = stale
         else:
-            record["created_at"] = stale
+            record["created_at_utc"] = stale
 
     return record, error_type
 
@@ -279,7 +273,7 @@ def generate_schema_A(county: CountySpec, n_households: int, bad_rate: float, er
         street = fake.street_address()
         city = fake.city()
         state = "WA"
-        zip5 = _zip_for_county(county.name)
+        zip = _zip_for_county(county.name)
 
         hrow = {
             "household_id": household_id,
@@ -287,23 +281,39 @@ def generate_schema_A(county: CountySpec, n_households: int, bad_rate: float, er
             "hh_size": hh_size,
             "income_usd": income,
             "housing_type": housing_badge(housing_type),
-            "created_at": _now_ts(),
+            "created_at_utc": _now_ts(),
         }
         arow = {
             "address_id": address_id,
             "street": street,
             "city": city,
             "state": state,
-            "zip5": zip5,
+            "zip": zip,
         }
 
-        # allow bad data mutations on household/address too
-        hrow, e1 = inject_bad_data_record(hrow, "A", bad_rate, error_weights)
+        cluster_bad = should_inject_bad_data(bad_rate)
+
+        if cluster_bad:
+            hrow, e1 = inject_bad_data_record(hrow, "A", bad_rate=1.0, error_weights=error_weights)
+        else:
+            e1 = None
         if e1:
             dq.append({"county": county.name, "schema": "A", "table": "household", "error_type": e1})
-        arow, e2 = inject_bad_data_record(arow, "A", bad_rate * 0.5, error_weights)
+        
+        if cluster_bad and random.random() < 0.5:
+            arow, e2 = inject_bad_data_record(arow, "A", bad_rate=1.0, error_weights=error_weights)
+        else:
+            e2 = None
         if e2:
             dq.append({"county": county.name, "schema": "A", "table": "address", "error_type": e2})
+
+        # allow bad data mutations on household/address too
+        # hrow, e1 = inject_bad_data_record(hrow, "A", bad_rate, error_weights)
+        # if e1:
+        #     dq.append({"county": county.name, "schema": "A", "table": "household", "error_type": e1})
+        # arow, e2 = inject_bad_data_record(arow, "A", bad_rate * 0.5, error_weights)
+        # if e2:
+        #     dq.append({"county": county.name, "schema": "A", "table": "address", "error_type": e2})
 
         households.append(hrow)
         addresses.append(arow)
@@ -328,18 +338,32 @@ def generate_schema_A(county: CountySpec, n_households: int, bad_rate: float, er
                 "moved_in_date": fake.date_between(start_date="-10y", end_date="today"),
             }
 
-            rrow, e3 = inject_bad_data_record(rrow, "A", bad_rate, error_weights)
+            if cluster_bad and random.random() < 0.5:
+                rrow, e3 = inject_bad_data_record(rrow, "A", bad_rate=1.0, error_weights=error_weights)
+            else:
+                e3 = None
             if e3:
                 dq.append({"county": county.name, "schema": "A", "table": "resident", "error_type": e3})
 
-            residents.append(rrow)
+            # rrow, e3 = inject_bad_data_record(rrow, "A", bad_rate, error_weights)
+            # if e3:
+            #     dq.append({"county": county.name, "schema": "A", "table": "resident", "error_type": e3})
 
-    return (
-        pd.DataFrame(residents),
-        pd.DataFrame(households),
-        pd.DataFrame(addresses),
-        pd.DataFrame(dq),
-    )
+            residents.append(rrow)      
+
+    RESIDENT_COLS = [
+        "resident_id","household_id","first_name","last_name","dob","sex","race",
+        "ethnicity","address_id","moved_in_date"
+    ]
+    HOUSEHOLD_COLS = ["household_id","county_fips","hh_size","income_usd","housing_type","created_at_utc"]
+    ADDRESS_COLS = ["address_id","street","city","state","zip"]
+
+    res_df = pd.DataFrame(residents)[RESIDENT_COLS]
+    hh_df = pd.DataFrame(households)[HOUSEHOLD_COLS]
+    addr_df = pd.DataFrame(addresses)[ADDRESS_COLS]
+    dq_df = pd.DataFrame(dq)
+
+    return res_df, hh_df, addr_df, dq_df
 
 def generate_schema_B(county: CountySpec, n_records: int, bad_rate: float, error_weights=None):
     """
@@ -367,7 +391,7 @@ def generate_schema_B(county: CountySpec, n_records: int, bad_rate: float, error
             "income_bracket": _income_to_bracket(income),
             "household_size": _household_size(county),
             "full_address": full_addr,
-            "updated_ts": _now_ts(),
+            "updated_ts_utc": _now_ts(),
         }
 
         row, e = inject_bad_data_record(row, "B", bad_rate, error_weights)
@@ -410,7 +434,7 @@ def generate_schema_C(county: CountySpec, n_docs: int, bad_rate: float, error_we
                 "street": fake.street_address(),
                 "city": fake.city(),
                 "state": "WA",
-                "zip5": _zip_for_county(county.name),
+                "zip": _zip_for_county(county.name),
             },
         }
 
@@ -418,7 +442,7 @@ def generate_schema_C(county: CountySpec, n_docs: int, bad_rate: float, error_we
             "doc_id": str(uuid.uuid4()),
             "county_fips": county.fips,
             "profile_json": profile,
-            "created_at": _now_ts(),
+            "created_at_utc": _now_ts(),
         }
 
         row, e = inject_bad_data_record(row, "C", bad_rate, error_weights)
@@ -499,17 +523,21 @@ def generate_all_nodes(schema: str,
 def export_to_csv(node_data: Dict[str, Dict[str, pd.DataFrame]], out_dir: str, schema: str):
     """
     Writes each county/table to CSV.
-    For schema C, profile_json will be stringified.
+    For schema C, profile_json will be JSON-serialized (valid JSON).
     """
-    import os
+    import os, json
     os.makedirs(out_dir, exist_ok=True)
 
     for county, tables in node_data.items():
         for table, df in tables.items():
             fpath = os.path.join(out_dir, f"{schema}_{county}_{table}.csv")
             df2 = df.copy()
+
             if "profile_json" in df2.columns:
-                df2["profile_json"] = df2["profile_json"].apply(lambda x: str(x))
+                df2["profile_json"] = df2["profile_json"].apply(
+                    lambda x: json.dumps(x, ensure_ascii=False) if isinstance(x, (dict, list)) else x
+                )
+
             df2.to_csv(fpath, index=False)
 
 
@@ -520,14 +548,11 @@ if __name__ == "__main__":
         "Pierce": 10000,
         "Snohomish": 10000,
         "Ferry": 2000,
-        "Garfield": 1500,
-        "San Juan": 2500,
+        "San Juan": 3000,
     }
 
-    # Control *types* of bad data (optional)
-    # e.g., more missing required + wrong types, fewer stale timestamps
+    # Control *types* of bad data (optional) -- weights to make some more common than others, or disable certain types by setting weight=0
     weights = {
-        "missing_required": 3.0,
         "wrong_type": 2.0,
         "invalid_age": 1.5,
         "negative_income": 1.0,
@@ -546,15 +571,9 @@ if __name__ == "__main__":
     nodes_C = generate_all_nodes("C", scales_small_demo, bad_rate=0.03, error_weights=weights, seed=7)
     export_to_csv(nodes_C, out_dir="data-generation/data/schema_C", schema="C")
 
-    # Quick sanity prints
-    print("Schema A (King) rows:",
-          {k: len(v) for k, v in nodes_A["King"].items() if k != "data_quality"},
-          "bad:", len(nodes_A["King"]["data_quality"]))
-
-    print("Schema B (King) rows:",
-          {k: len(v) for k, v in nodes_B["King"].items() if k != "data_quality"},
-          "bad:", len(nodes_B["King"]["data_quality"]))
-
-    print("Schema C (King) rows:",
-          {k: len(v) for k, v in nodes_C["King"].items() if k != "data_quality"},
-          "bad:", len(nodes_C["King"]["data_quality"]))
+    for county in scales_small_demo.keys():
+        print(f"County: {county}")
+        print("  Schema A:", {k: len(v) for k, v in nodes_A[county].items() if k != "data_quality"}, "bad:", len(nodes_A[county]["data_quality"]))
+        print("  Schema B:", {k: len(v) for k, v in nodes_B[county].items() if k != "data_quality"}, "bad:", len(nodes_B[county]["data_quality"]))
+        print("  Schema C:", {k: len(v) for k, v in nodes_C[county].items() if k != "data_quality"}, "bad:", len(nodes_C[county]["data_quality"]))
+    

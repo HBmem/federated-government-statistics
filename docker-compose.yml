@@ -1,0 +1,132 @@
+services:
+  metro_db:
+    image: postgres:16
+    container_name: metro_db
+    environment:
+      POSTGRES_USER: federated
+      POSTGRES_PASSWORD: federated
+      POSTGRES_DB: county
+    ports:
+      - "5541:5432"
+    volumes:
+      - metro_data:/var/lib/postgresql/data
+      - ./init/metro:/docker-entrypoint-initdb.d
+    command: >
+      postgres
+      -c shared_buffers=512MB
+      -c work_mem=32MB
+      -c maintenance_work_mem=256MB
+      -c max_wal_size=2GB
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 2G
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U federated -d county"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  medium1_db:
+    image: postgres:16
+    container_name: medium1_db
+    environment:
+      POSTGRES_USER: federated
+      POSTGRES_PASSWORD: federated
+      POSTGRES_DB: county
+    ports:
+      - "5542:5432"
+    volumes:
+      - medium1_data:/var/lib/postgresql/data
+      - ./init/medium1:/docker-entrypoint-initdb.d
+    command: >
+      postgres
+      -c shared_buffers=256MB
+      -c work_mem=16MB
+      -c maintenance_work_mem=128MB
+      -c max_wal_size=1GB
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 1G
+
+  medium2_db:
+    image: postgres:16
+    container_name: medium2_db
+    environment:
+      POSTGRES_USER: federated
+      POSTGRES_PASSWORD: federated
+      POSTGRES_DB: county
+    ports:
+      - "5543:5432"
+    volumes:
+      - medium2_data:/var/lib/postgresql/data
+      - ./init/medium2:/docker-entrypoint-initdb.d
+    command: >
+      postgres
+      -c shared_buffers=256MB
+      -c work_mem=16MB
+      -c maintenance_work_mem=128MB
+      -c max_wal_size=1GB
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 1G
+
+  rural1_db:
+    image: postgres:16
+    container_name: rural1_db
+    environment:
+      POSTGRES_USER: federated
+      POSTGRES_PASSWORD: federated
+      POSTGRES_DB: county
+    ports:
+      - "5544:5432"
+    volumes:
+      - rural1_data:/var/lib/postgresql/data
+      - ./init/rural1:/docker-entrypoint-initdb.d
+    command: >
+      postgres
+      -c shared_buffers=128MB
+      -c work_mem=8MB
+      -c maintenance_work_mem=64MB
+      -c max_wal_size=512MB
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 768M
+
+  rural2_db:
+    image: postgres:16
+    container_name: rural2_db
+    environment:
+      POSTGRES_USER: federated
+      POSTGRES_PASSWORD: federated
+      POSTGRES_DB: county
+    ports:
+      - "5545:5432"
+    volumes:
+      - rural2_data:/var/lib/postgresql/data
+      - ./init/rural2:/docker-entrypoint-initdb.d
+    command: >
+      postgres
+      -c shared_buffers=128MB
+      -c work_mem=8MB
+      -c maintenance_work_mem=64MB
+      -c max_wal_size=512MB
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 768M
+
+volumes:
+  metro_data:
+  medium1_data:
+  medium2_data:
+  rural1_data:
+  rural2_data:

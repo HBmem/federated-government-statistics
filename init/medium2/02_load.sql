@@ -1,0 +1,1 @@
+\copy person_record FROM '/docker-entrypoint-initdb.d/person_record.csv' WITH (FORMAT csv, HEADER true);

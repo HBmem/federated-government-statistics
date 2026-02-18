@@ -1,0 +1,1 @@
+\copy citizen FROM '/docker-entrypoint-initdb.d/citizen.csv' WITH (FORMAT csv, HEADER true);
