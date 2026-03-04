@@ -1,0 +1,30 @@
+{
+"age_years": {
+    "buckets": [
+      { "label": "0-4", "min": 0, "max": 4 },
+      { "label": "5-9", "min": 5, "max": 9 },
+      { "label": "10-14", "min": 10, "max": 14 },
+      { "label": "15-17", "min": 15, "max": 17 },
+      { "label": "18-24", "min": 18, "max": 24 },
+      { "label": "25-34", "min": 25, "max": 34 },
+      { "label": "35-44", "min": 35, "max": 44 },
+      { "label": "45-54", "min": 45, "max": 54 },
+      { "label": "55-64", "min": 55, "max": 64 },
+      { "label": "65-74", "min": 65, "max": 74 },
+      { "label": "75-84", "min": 75, "max": 84 },
+      { "label": "85+", "min": 85, "max": null }
+    ]
+  },
+
+  "income_usd": {
+    "buckets": [
+      { "label": "<25k", "min": 0, "max": 24999 },
+      { "label": "25-50k", "min": 25000, "max": 49999 },
+      { "label": "50-75k", "min": 50000, "max": 74999 },
+      { "label": "75-100k", "min": 75000, "max": 99999 },
+      { "label": "100-150k", "min": 100000, "max": 149999 },
+      { "label": "150-200k", "min": 150000, "max": 199999 },
+      { "label": "200k+", "min": 200000, "max": null }
+    ]
+  }
+}

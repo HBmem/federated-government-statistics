@@ -1,4 +1,7 @@
-CREATE TABLE person_record (
+-- 01_schema.sql (medium2)
+-- Same schema as medium1 to enable consistent performance comparisons.
+
+CREATE TABLE IF NOT EXISTS person_record (
   person_uuid UUID PRIMARY KEY,
   county TEXT,
   dob_str TEXT,
@@ -19,5 +22,6 @@ CREATE TABLE person_record (
   has_job_flag TEXT
 );
 
-CREATE INDEX idx_person_county ON person_record(county);
-CREATE INDEX idx_person_updated ON person_record(updated_ts_utc);
+CREATE INDEX IF NOT EXISTS idx_person_county ON person_record(county);
+CREATE INDEX IF NOT EXISTS idx_person_updated ON person_record(updated_ts_utc);
+CREATE INDEX IF NOT EXISTS idx_person_active ON person_record(active_flag);

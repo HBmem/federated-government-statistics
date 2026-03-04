@@ -1,0 +1,51 @@
+{
+  "output_root": "data-generation/data",
+  "seed": 42,
+  "bad_data_rate": 0.08,
+  "generate_schema_a": true,
+  "generate_schema_b": true,
+  "generate_schema_c": true,
+  "date_bounds": {
+    "min_year": 2015,
+    "max_year": 2026
+  },
+
+  "counties": [
+    { "label": "metro",   "fips": "53033", "name": "King",       "rows": 50000 },
+    { "label": "medium1", "fips": "53061", "name": "Snohomish",  "rows": 20000 },
+    { "label": "medium2", "fips": "53053", "name": "Pierce",     "rows": 20000 },
+    { "label": "rural1",  "fips": "53019", "name": "Ferry",      "rows": 5000  },
+    { "label": "rural2",  "fips": "53023", "name": "Garfield",   "rows": 5000  }
+  ],
+
+  "distributions": {
+    "sex": { "M": 0.49, "F": 0.49, "X": 0.02 },
+    "race": {
+      "White": 0.55,
+      "Black": 0.07,
+      "Asian": 0.12,
+      "Pacific": 0.02,
+      "Native": 0.02,
+      "Other": 0.22
+    },
+    "ethnicity": { "Hispanic": 0.14, "NonHispanic": 0.86 },
+    "employment_status": {
+      "Employed": 0.58,
+      "Unemployed": 0.06,
+      "NotInLaborForce": 0.36
+    }
+  },
+
+  "bad_data_weights": {
+    "wrong_type": 2.0,
+    "invalid_age": 1.5,
+    "negative_income": 1.0,
+    "nonsense_zip": 1.0,
+    "inconsistent_codes": 1.0,
+    "stale_timestamp": 0.3,
+    "move_out_before_move_in": 0.8,
+    "death_before_birth": 0.3,
+    "active_inconsistent_with_dates": 0.6,
+    "missing_verification": 0.6
+  }
+}

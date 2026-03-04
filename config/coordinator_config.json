@@ -1,0 +1,54 @@
+{
+    "run": {
+        "time_window": {
+            "start_date": "2026-01-01",
+            "end_date": "2026-12-31"
+        },
+        "category": "demographic",
+        "output_dir": "Output/runs",
+        "include_node_payloads": true
+    },
+
+    "fault_tolerance": {
+        "worker_response_timeout_sec": 20,
+        "worker_query_timeout_sec": 15,
+        "max_retries_per_phase": 1
+    },
+
+    "db": {
+        "statement_timeout_ms": 12000,
+        "lock_timeout_ms": 3000
+    },
+
+    "metrics": {
+        "enabled": {
+            "population": true,
+            "demographics": true,
+            "income": true,
+            "age": true,
+            "unemployment": true,
+            "quality": true
+        },
+        "bucket_config_path": "Config/buckets.json"
+    },
+
+    "residency_rules": {
+        "require_county_match": true,
+        "strict_missing_fields": true,
+        "date_logic": {
+            "require_moved_in_on_or_before_end": true,
+            "exclude_if_moved_out_before_start": true,
+            "exclude_if_dead_on_or_before_end": true
+        }
+    },
+
+    "query_templates": {
+        "registry_path": "Queries/registry.json",
+        "allow_probe_fallback": true
+    },
+
+  "logging": {
+        "log_dir": "Output/logs",
+        "level": "info"
+    }
+}

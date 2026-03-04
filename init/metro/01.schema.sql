@@ -1,6 +1,11 @@
+-- 01_schema.sql (metro)
+-- Creates Schema A (multi-table) for join-heavy workloads.
+
+-- pgcrypto is used to support UUID utilities if needed.
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
-CREATE TABLE household (
+-- Household table contains county_fips and household-level attributes.
+CREATE TABLE IF NOT EXISTS household (
   household_id UUID PRIMARY KEY,
   county_fips TEXT NOT NULL,
   hh_size INT,
@@ -9,7 +14,8 @@ CREATE TABLE household (
   created_at_utc TIMESTAMP
 );
 
-CREATE TABLE address (
+-- Address table stores address information referenced by resident.
+CREATE TABLE IF NOT EXISTS address (
   address_id UUID PRIMARY KEY,
   street TEXT,
   city TEXT,
@@ -17,7 +23,8 @@ CREATE TABLE address (
   zip TEXT
 );
 
-CREATE TABLE resident (
+-- Resident table stores person-level attributes and residency/employment fields.
+CREATE TABLE IF NOT EXISTS resident (
   resident_id UUID PRIMARY KEY,
   household_id UUID REFERENCES household(household_id),
   first_name TEXT,
@@ -37,5 +44,9 @@ CREATE TABLE resident (
   has_job_flag BOOLEAN
 );
 
-CREATE INDEX idx_household_county ON household(county_fips);
-CREATE INDEX idx_resident_household ON resident(household_id);
+-- Indexes to improve filtering/join performance.
+CREATE INDEX IF NOT EXISTS idx_household_county ON household(county_fips);
+CREATE INDEX IF NOT EXISTS idx_resident_household ON resident(household_id);
+CREATE INDEX IF NOT EXISTS idx_resident_active ON resident(active_status);
+CREATE INDEX IF NOT EXISTS idx_resident_move_out ON resident(move_out_date);
+CREATE INDEX IF NOT EXISTS idx_resident_death ON resident(death_date);

@@ -12,4 +12,7 @@ venv.bak/
 .vscode/
 
 # Data files
-data-generation/data
+data-generation/data/
+
+# Remove old version of code
+old-files/

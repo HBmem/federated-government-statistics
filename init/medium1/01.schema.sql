@@ -1,4 +1,7 @@
-CREATE TABLE person_record (
+-- 01_schema.sql (medium1)
+-- Creates Schema B (single-table) for scan-heavy workloads with string parsing.
+
+CREATE TABLE IF NOT EXISTS person_record (
   person_uuid UUID PRIMARY KEY,
   county TEXT,
   dob_str TEXT,
@@ -19,5 +22,7 @@ CREATE TABLE person_record (
   has_job_flag TEXT
 );
 
-CREATE INDEX idx_person_county ON person_record(county);
-CREATE INDEX idx_person_updated ON person_record(updated_ts_utc);
+-- Indexes that reflect typical query patterns in the project.
+CREATE INDEX IF NOT EXISTS idx_person_county ON person_record(county);
+CREATE INDEX IF NOT EXISTS idx_person_updated ON person_record(updated_ts_utc);
+CREATE INDEX IF NOT EXISTS idx_person_active ON person_record(active_flag);
