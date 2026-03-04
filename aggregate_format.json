@@ -1,0 +1,961 @@
+{
+    "coordinator": {
+        "Metadata": {
+            "source": "demographic_data",
+            "timestamp": "2026-06-01T12:00:00Z",
+            "time_window": {
+                "start": "2026-01-01T00:00:00Z",
+                "end": "2026-12-31T23:59:59Z"
+            },
+            "counties": [
+                "53019",
+                "53023",
+                "53033",
+                "53053",
+                "53061"
+            ]
+        },
+        "aggregates": {
+            "metrics": {
+                "population": {
+                    "count": 0,
+                    "min": 0,
+                    "max": 0,
+                    "mean": 0,
+                    "median": 0
+                },
+                "households": {
+                    "count": 0,
+                    "min": 0,
+                    "max": 0,
+                    "mean": 0,
+                    "median": 0
+                },
+                "income": {
+                    "count": 0,
+                    "sum": 0,
+                    "min": 0,
+                    "max": 0,
+                    "mean": 0,
+                    "median": 0
+                },
+                "income_bucket": {
+                    "<25k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "25-50k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "50-75k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "75-100k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "100-150k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "150-200k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "200k+": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    }
+
+                },
+                "age": {
+                    "count": 0,
+                    "min": 0,
+                    "max": 0,
+                    "mean": 0,
+                    "median": 0
+                },
+                "age_bucket": {
+                    "0-18": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "19-35": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "36-50": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "51-65": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "66+": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    }
+                },
+                "unemployment_rate": {
+                    "with_jobs": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "without_jobs": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    }
+                }
+            },
+            "quality": {
+                "rows_scanned": 0,
+                "rows_used": 0,
+                "rows_dropped": 0
+            }
+        }
+    },
+    "worker_nodes": [
+        {
+            "rank": 1,
+            "source_description": "Worker rank 1 processing county 53019",
+            "county_fips": "53019",
+            "status": {
+                "elapsed_ms": 0,
+                "message": "",
+                "ok": true
+            },
+            "metrics": {
+                "population": {
+                    "count": 0,
+                    "min": 0,
+                    "max": 0,
+                    "mean": 0,
+                    "median": 0
+                },
+                "households": {
+                    "count": 0,
+                    "min": 0,
+                    "max": 0,
+                    "mean": 0,
+                    "median": 0
+                },
+                "income": {
+                    "count": 0,
+                    "sum": 0,
+                    "min": 0,
+                    "max": 0,
+                    "mean": 0,
+                    "median": 0
+                },
+                "income_bucket": {
+                    "<25k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "25-50k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "50-75k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "75-100k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "100-150k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "150-200k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "200k+": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    }
+
+                },
+                "age": {
+                    "count": 0,
+                    "min": 0,
+                    "max": 0,
+                    "mean": 0,
+                    "median": 0
+                },
+                "age_bucket": {
+                    "0-18": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "19-35": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "36-50": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "51-65": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "66+": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    }
+                },
+                "unemployment_rate": {
+                    "with_jobs": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "without_jobs": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    }
+                }
+            },
+            "quality": {
+                "rows_scanned": 0,
+                "rows_used": 0,
+                "rows_dropped": 0
+            }
+        },
+        {
+            "rank": 2,
+            "source_description": "Worker rank 2 processing county 53023",
+            "county_fips": "53023",
+            "status": {
+                "elapsed_ms": 0,
+                "message": "",
+                "ok": true
+            },
+            "metrics": {
+                "population": {
+                    "count": 0,
+                    "min": 0,
+                    "max": 0,
+                    "mean": 0,
+                    "median": 0
+                },
+                "households": {
+                    "count": 0,
+                    "min": 0,
+                    "max": 0,
+                    "mean": 0,
+                    "median": 0
+                },
+                "income": {
+                    "count": 0,
+                    "sum": 0,
+                    "min": 0,
+                    "max": 0,
+                    "mean": 0,
+                    "median": 0
+                },
+                "income_bucket": {
+                    "<25k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "25-50k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "50-75k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "75-100k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "100-150k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "150-200k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "200k+": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    }
+
+                },
+                "age": {
+                    "count": 0,
+                    "min": 0,
+                    "max": 0,
+                    "mean": 0,
+                    "median": 0
+                },
+                "age_bucket": {
+                    "0-18": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "19-35": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "36-50": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "51-65": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "66+": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    }
+                },
+                "unemployment_rate": {
+                    "with_jobs": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "without_jobs": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    }
+                }
+            },
+            "quality": {
+                "rows_scanned": 0,
+                "rows_used": 0,
+                "rows_dropped": 0
+            }
+        },
+        {
+            "rank": 3,
+            "source_description": "Worker rank 3 processing county 53033",
+            "county_fips": "53033",
+            "status": {
+                "elapsed_ms": 0,
+                "message": "",
+                "ok": true
+            },
+            "metrics": {
+                "population": {
+                    "count": 0,
+                    "min": 0,
+                    "max": 0,
+                    "mean": 0,
+                    "median": 0
+                },
+                "households": {
+                    "count": 0,
+                    "min": 0,
+                    "max": 0,
+                    "mean": 0,
+                    "median": 0
+                },
+                "income": {
+                    "count": 0,
+                    "sum": 0,
+                    "min": 0,
+                    "max": 0,
+                    "mean": 0,
+                    "median": 0
+                },
+                "income_bucket": {
+                    "<25k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "25-50k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "50-75k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "75-100k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "100-150k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "150-200k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "200k+": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    }
+
+                },
+                "age": {
+                    "count": 0,
+                    "min": 0,
+                    "max": 0,
+                    "mean": 0,
+                    "median": 0
+                },
+                "age_bucket": {
+                    "0-18": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "19-35": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "36-50": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "51-65": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "66+": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    }
+                },
+                "unemployment_rate": {
+                    "with_jobs": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "without_jobs": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    }
+                }
+            },
+            "quality": {
+                "rows_scanned": 0,
+                "rows_used": 0,
+                "rows_dropped": 0
+            }
+        },
+        {
+            "rank": 4,
+            "source_description": "Worker rank 4 processing county 53053",
+            "county_fips": "53053",
+            "status": {
+                "elapsed_ms": 0,
+                "message": "",
+                "ok": true
+            },
+            "metrics": {
+                "population": {
+                    "count": 0,
+                    "min": 0,
+                    "max": 0,
+                    "mean": 0,
+                    "median": 0
+                },
+                "households": {
+                    "count": 0,
+                    "min": 0,
+                    "max": 0,
+                    "mean": 0,
+                    "median": 0
+                },
+                "income": {
+                    "count": 0,
+                    "sum": 0,
+                    "min": 0,
+                    "max": 0,
+                    "mean": 0,
+                    "median": 0
+                },
+                "income_bucket": {
+                    "<25k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "25-50k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "50-75k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "75-100k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "100-150k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "150-200k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "200k+": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    }
+
+                },
+                "age": {
+                    "count": 0,
+                    "min": 0,
+                    "max": 0,
+                    "mean": 0,
+                    "median": 0
+                },
+                "age_bucket": {
+                    "0-18": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "19-35": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "36-50": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "51-65": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "66+": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    }
+                },
+                "unemployment_rate": {
+                    "with_jobs": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "without_jobs": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    }
+                }
+            },
+            "quality": {
+                "rows_scanned": 0,
+                "rows_used": 0,
+                "rows_dropped": 0
+            }
+        },
+        {
+            "rank": 5,
+            "source_description": "Worker rank 5 processing county 53061",
+            "county_fips": "53061",
+            "status": {
+                "elapsed_ms": 0,
+                "message": "",
+                "ok": true
+            },
+            "metrics": {
+                "population": {
+                    "count": 0,
+                    "min": 0,
+                    "max": 0,
+                    "mean": 0,
+                    "median": 0
+                },
+                "households": {
+                    "count": 0,
+                    "min": 0,
+                    "max": 0,
+                    "mean": 0,
+                    "median": 0
+                },
+                "income": {
+                    "count": 0,
+                    "sum": 0,
+                    "min": 0,
+                    "max": 0,
+                    "mean": 0,
+                    "median": 0
+                },
+                "income_bucket": {
+                    "<25k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "25-50k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "50-75k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "75-100k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "100-150k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "150-200k": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "200k+": {
+                        "count": 0,
+                        "sum": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    }
+
+                },
+                "age": {
+                    "count": 0,
+                    "min": 0,
+                    "max": 0,
+                    "mean": 0,
+                    "median": 0
+                },
+                "age_bucket": {
+                    "0-18": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "19-35": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "36-50": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "51-65": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "66+": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    }
+                },
+                "unemployment_rate": {
+                    "with_jobs": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    },
+                    "without_jobs": {
+                        "count": 0,
+                        "min": 0,
+                        "max": 0,
+                        "mean": 0,
+                        "median": 0
+                    }
+                }
+            },
+            "quality": {
+                "rows_scanned": 0,
+                "rows_used": 0,
+                "rows_dropped": 0
+            }
+        }
+    ]
+}

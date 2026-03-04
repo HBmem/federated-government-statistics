@@ -2,7 +2,7 @@ CREATE TABLE citizen (
   doc_id TEXT PRIMARY KEY,
   county_fips TEXT,
   profile_json JSONB,
-  created_at TIMESTAMP
+  created_at_utc TIMESTAMP
 );
 
 CREATE INDEX idx_citizen_county ON citizen(county_fips);

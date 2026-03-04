@@ -30,7 +30,7 @@ The cordinator now will request the following aggregated data from the worker no
         - sum
     - unemployment rate
         - count with jobs
-        - count wihtout jobs
+        - count without jobs
 - Quality
     - rows scanned
         - count
@@ -51,3 +51,23 @@ The first test will be performed on 50,000 rows split between 5 databses.
 | rural2 | San Juan | 3,000 |
 
 
+Instriction on test
+```
+cd build
+make clean
+cmake ..
+make -j
+```
+
+Intruction on how to test
+
+```
+mpirun -np 6 ./federated ../config/nodes.txt
+```
+
+Instructions to run database
+```
+sudo docker compose ps -a
+sudo docker compose down -v
+sudo docker compose up -d
+```

@@ -8,5 +8,8 @@ ENV/
 env.bak/
 venv.bak/
 
+# VSCode settings
+.vscode/
+
 # Data files
 data-generation/data

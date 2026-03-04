@@ -1,0 +1,24 @@
+# nodes.txt
+# Line format:
+# - Coordinator line: "COORDINATOR"
+# - Worker line: space-separated key=value pairs
+# Required worker keys: host, port, dbname, user, password, county_fips
+# Optional worker keys can be added later (e.g., schema_hint=A|B|C, label=metro)
+
+# rank 0 (coordinator)
+COORDINATOR
+
+# rank 1 (metro_db)
+host=127.0.0.1 port=5541 dbname=county user=federated password=federated county_fips=53033
+
+# rank 2 (medium1_db)
+host=127.0.0.1 port=5542 dbname=county user=federated password=federated county_fips=53053
+
+# rank 3 (medium2_db)
+host=127.0.0.1 port=5543 dbname=county user=federated password=federated county_fips=53061
+
+# rank 4 (rural1_db)
+host=127.0.0.1 port=5544 dbname=county user=federated password=federated county_fips=53019
+
+# rank 5 (rural2_db)
+host=127.0.0.1 port=5545 dbname=county user=federated password=federated county_fips=53023

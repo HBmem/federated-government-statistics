@@ -27,7 +27,14 @@ CREATE TABLE resident (
   race TEXT,
   ethnicity TEXT,
   address_id UUID REFERENCES address(address_id),
-  moved_in_date DATE
+  moved_in_date DATE,
+  move_out_date DATE,
+  death_date DATE,
+  active_status BOOLEAN,
+  last_verified_date DATE,
+  verification_source TEXT,
+  employment_status TEXT,
+  has_job_flag BOOLEAN
 );
 
 CREATE INDEX idx_household_county ON household(county_fips);
