@@ -1,0 +1,109 @@
+-- income.sql (Schema B)
+-- Returns mergeable income histogram counts using income_bracket strings.
+-- Since Schema B does not store numeric income, we return only bucket counts and a total.
+-- The coordinator can compute percent-of-population per bucket and approximate medians.
+
+WITH params AS (
+  SELECT CAST(:start_date AS DATE) AS start_date, CAST(:end_date AS DATE) AS end_date
+),
+base AS (
+  SELECT
+    person_uuid,
+    county,
+    income_bracket,
+    moved_in_str,
+    move_out_str,
+    death_str,
+    verification_source
+  FROM person_record
+),
+parsed AS (
+  SELECT
+    b.*,
+    CASE
+      WHEN moved_in_str ~ '^\d{4}-\d{2}-\d{2}$' THEN to_date(moved_in_str, 'YYYY-MM-DD')
+      WHEN moved_in_str ~ '^\d{2}/\d{2}/\d{4}$' THEN to_date(moved_in_str, 'MM/DD/YYYY')
+      WHEN moved_in_str ~ '^\d{2}-\d{2}-\d{4}$' THEN to_date(moved_in_str, 'MM-DD-YYYY')
+      ELSE NULL
+    END AS moved_in_date,
+    CASE
+      WHEN move_out_str ~ '^\d{4}-\d{2}-\d{2}$' THEN to_date(move_out_str, 'YYYY-MM-DD')
+      WHEN move_out_str ~ '^\d{2}/\d{2}/\d{4}$' THEN to_date(move_out_str, 'MM/DD/YYYY')
+      WHEN move_out_str ~ '^\d{2}-\d{2}-\d{4}$' THEN to_date(move_out_str, 'MM-DD-YYYY')
+      ELSE NULL
+    END AS move_out_date,
+    CASE
+      WHEN death_str ~ '^\d{4}-\d{2}-\d{2}$' THEN to_date(death_str, 'YYYY-MM-DD')
+      WHEN death_str ~ '^\d{2}/\d{2}/\d{4}$' THEN to_date(death_str, 'MM/DD/YYYY')
+      WHEN death_str ~ '^\d{2}-\d{2}-\d{4}$' THEN to_date(death_str, 'MM-DD-YYYY')
+      ELSE NULL
+    END AS death_date
+  FROM base b
+),
+labeled AS (
+  SELECT
+    p.*,
+    (p.person_uuid IS NULL OR p.county IS NULL OR p.county = '') AS missing_required,
+    (p.verification_source IS NULL OR p.verification_source = '') AS missing_verification,
+
+    (p.moved_in_str IS NOT NULL AND p.moved_in_str <> '' AND p.moved_in_date IS NULL) AS invalid_moved_in_format,
+    (p.move_out_str IS NOT NULL AND p.move_out_str <> '' AND p.move_out_date IS NULL) AS invalid_move_out_format,
+    (p.death_str IS NOT NULL AND p.death_str <> '' AND p.death_date IS NULL) AS invalid_death_format,
+
+    (p.moved_in_date IS NULL OR p.moved_in_date > (SELECT end_date FROM params)) AS invalid_moved_in,
+    (p.move_out_date IS NOT NULL AND p.move_out_date < (SELECT start_date FROM params)) AS invalid_move_out,
+    (p.death_date IS NOT NULL AND p.death_date <= (SELECT end_date FROM params)) AS invalid_death,
+
+    (p.income_bracket IS NULL OR p.income_bracket = '') AS missing_income_bracket
+  FROM parsed p
+),
+valid AS (
+  SELECT
+    l.*,
+    NOT (
+      l.missing_required OR l.missing_verification OR
+      l.invalid_moved_in_format OR l.invalid_move_out_format OR l.invalid_death_format OR
+      l.invalid_moved_in OR l.invalid_move_out OR l.invalid_death OR
+      l.missing_income_bracket
+    ) AS is_valid,
+    CASE
+      WHEN l.missing_required OR l.missing_income_bracket THEN 'missing_required'
+      WHEN l.missing_verification THEN 'missing_verification'
+      WHEN l.invalid_moved_in_format OR l.invalid_move_out_format OR l.invalid_death_format THEN 'invalid_date'
+      WHEN l.invalid_moved_in OR l.invalid_move_out OR l.invalid_death THEN 'inconsistent_residency'
+      ELSE NULL
+    END AS primary_drop_reason
+  FROM labeled l
+),
+agg AS (
+  SELECT
+    COUNT(*)::BIGINT AS rows_scanned,
+    COUNT(*) FILTER (WHERE is_valid)::BIGINT AS rows_used,
+    COUNT(*) FILTER (WHERE NOT is_valid)::BIGINT AS rows_dropped,
+
+    COUNT(*) FILTER (WHERE primary_drop_reason = 'missing_required')::BIGINT AS drop_missing_required,
+    COUNT(*) FILTER (WHERE primary_drop_reason = 'missing_verification')::BIGINT AS drop_missing_verification,
+    COUNT(*) FILTER (WHERE primary_drop_reason = 'invalid_date')::BIGINT AS drop_invalid_date,
+    COUNT(*) FILTER (WHERE primary_drop_reason = 'inconsistent_residency')::BIGINT AS drop_inconsistent_residency,
+
+    0::BIGINT AS drop_invalid_age,
+    0::BIGINT AS drop_negative_income,
+    0::BIGINT AS drop_other,
+
+    -- We do not return income_sum/min/max because income is categorical here.
+    NULL::NUMERIC AS income_sum,
+    COUNT(*) FILTER (WHERE is_valid)::BIGINT AS income_count,
+    NULL::NUMERIC AS income_min,
+    NULL::NUMERIC AS income_max,
+
+    -- Histogram buckets (match Config/buckets.json labels)
+    COUNT(*) FILTER (WHERE is_valid AND income_bracket = '<25k')::BIGINT AS inc_lt_25k,
+    COUNT(*) FILTER (WHERE is_valid AND income_bracket = '25-50k')::BIGINT AS inc_25_50k,
+    COUNT(*) FILTER (WHERE is_valid AND income_bracket = '50-75k')::BIGINT AS inc_50_75k,
+    COUNT(*) FILTER (WHERE is_valid AND income_bracket = '75-100k')::BIGINT AS inc_75_100k,
+    COUNT(*) FILTER (WHERE is_valid AND income_bracket = '100-150k')::BIGINT AS inc_100_150k,
+    COUNT(*) FILTER (WHERE is_valid AND income_bracket = '150-200k')::BIGINT AS inc_150_200k,
+    COUNT(*) FILTER (WHERE is_valid AND income_bracket = '200k+')::BIGINT AS inc_200k_plus
+  FROM valid
+)
+SELECT * FROM agg;
