@@ -271,7 +271,7 @@ The registry maps:
 - metric + schema type → SQL template file
 
 Example location:
-- Queries/registry.json
+- queries/registry.json
 
 ---
 

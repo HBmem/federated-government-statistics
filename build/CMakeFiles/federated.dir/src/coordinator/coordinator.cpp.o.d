@@ -1,7 +1,8 @@
-CMakeFiles/federated.dir/src/json_aggregator.cpp.o: \
- /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/json_aggregator.cpp \
+CMakeFiles/federated.dir/src/coordinator/coordinator.cpp.o: \
+ /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/coordinator/coordinator.cpp \
  /usr/include/stdc-predef.h \
- /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/json_aggregator.hpp \
+ /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/coordinator/coordinator.hpp \
+ /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/coordinator/../common/config.hpp \
  /usr/include/c++/13/string /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -116,28 +117,33 @@ CMakeFiles/federated.dir/src/json_aggregator.cpp.o: \
  /usr/include/c++/13/bits/memory_resource.h /usr/include/c++/13/cstddef \
  /usr/include/c++/13/bits/uses_allocator.h \
  /usr/include/c++/13/bits/uses_allocator_args.h /usr/include/c++/13/tuple \
- /usr/include/c++/13/vector /usr/include/c++/13/bits/stl_uninitialized.h \
+ /usr/include/c++/13/unordered_map \
+ /usr/include/c++/13/bits/unordered_map.h \
+ /usr/include/c++/13/bits/hashtable.h \
+ /usr/include/c++/13/bits/hashtable_policy.h \
+ /usr/include/c++/13/ext/aligned_buffer.h \
+ /usr/include/c++/13/bits/enable_special_members.h \
+ /usr/include/c++/13/bits/node_handle.h \
+ /usr/include/c++/13/bits/erase_if.h /usr/include/c++/13/vector \
+ /usr/include/c++/13/bits/stl_uninitialized.h \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
- /usr/include/c++/13/bits/vector.tcc /usr/include/c++/13/map \
- /usr/include/c++/13/bits/stl_tree.h \
- /usr/include/c++/13/ext/aligned_buffer.h \
- /usr/include/c++/13/bits/node_handle.h \
- /usr/include/c++/13/bits/stl_map.h \
- /usr/include/c++/13/bits/stl_multimap.h \
- /usr/include/c++/13/bits/erase_if.h \
- /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/types.hpp \
- /usr/include/c++/13/cstdint \
- /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
- /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
- /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/aggregate.hpp \
- /usr/include/c++/13/sstream /usr/include/c++/13/istream \
- /usr/include/c++/13/ios /usr/include/c++/13/exception \
- /usr/include/c++/13/bits/exception_ptr.h \
- /usr/include/c++/13/bits/cxxabi_init_exception.h \
- /usr/include/c++/13/typeinfo /usr/include/c++/13/bits/nested_exception.h \
- /usr/include/c++/13/bits/ios_base.h /usr/include/c++/13/ext/atomicity.h \
+ /usr/include/c++/13/bits/vector.tcc \
+ /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/coordinator/../common/json.hpp \
+ /usr/include/nlohmann/json.hpp /usr/include/c++/13/algorithm \
+ /usr/include/c++/13/bits/stl_algo.h \
+ /usr/include/c++/13/bits/algorithmfwd.h \
+ /usr/include/c++/13/bits/stl_heap.h \
+ /usr/include/c++/13/bits/uniform_int_dist.h \
+ /usr/include/c++/13/bits/stl_tempbuf.h \
+ /usr/include/c++/13/pstl/glue_algorithm_defs.h \
+ /usr/include/c++/13/pstl/execution_defs.h /usr/include/c++/13/functional \
+ /usr/include/c++/13/bits/std_function.h /usr/include/c++/13/typeinfo \
+ /usr/include/c++/13/array /usr/include/c++/13/compare \
+ /usr/include/c++/13/iterator /usr/include/c++/13/bits/stream_iterator.h \
+ /usr/include/c++/13/bits/streambuf_iterator.h \
+ /usr/include/c++/13/streambuf /usr/include/c++/13/bits/ios_base.h \
+ /usr/include/c++/13/ext/atomicity.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h \
  /usr/include/pthread.h /usr/include/sched.h \
@@ -157,45 +163,17 @@ CMakeFiles/federated.dir/src/json_aggregator.cpp.o: \
  /usr/include/c++/13/bits/locale_classes.tcc \
  /usr/include/c++/13/system_error \
  /usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h \
- /usr/include/c++/13/stdexcept /usr/include/c++/13/streambuf \
- /usr/include/c++/13/bits/streambuf.tcc \
- /usr/include/c++/13/bits/basic_ios.h \
- /usr/include/c++/13/bits/locale_facets.h /usr/include/c++/13/cwctype \
- /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
- /usr/include/c++/13/bits/streambuf_iterator.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h \
- /usr/include/c++/13/bits/locale_facets.tcc \
- /usr/include/c++/13/bits/basic_ios.tcc /usr/include/c++/13/ostream \
- /usr/include/c++/13/bits/ostream.tcc \
- /usr/include/c++/13/bits/istream.tcc \
- /usr/include/c++/13/bits/sstream.tcc /usr/include/c++/13/iostream \
- /usr/include/c++/13/iomanip /usr/include/c++/13/locale \
- /usr/include/c++/13/bits/locale_facets_nonio.h /usr/include/c++/13/ctime \
- /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h \
- /usr/include/libintl.h /usr/include/c++/13/bits/codecvt.h \
- /usr/include/c++/13/bits/locale_facets_nonio.tcc \
- /usr/include/c++/13/bits/locale_conv.h \
- /usr/include/c++/13/bits/quoted_string.h /usr/include/nlohmann/json.hpp \
- /usr/include/c++/13/algorithm /usr/include/c++/13/bits/stl_algo.h \
- /usr/include/c++/13/bits/algorithmfwd.h \
- /usr/include/c++/13/bits/stl_heap.h \
- /usr/include/c++/13/bits/uniform_int_dist.h \
- /usr/include/c++/13/bits/stl_tempbuf.h \
- /usr/include/c++/13/pstl/glue_algorithm_defs.h \
- /usr/include/c++/13/pstl/execution_defs.h /usr/include/c++/13/functional \
- /usr/include/c++/13/bits/std_function.h \
- /usr/include/c++/13/unordered_map \
- /usr/include/c++/13/bits/unordered_map.h \
- /usr/include/c++/13/bits/hashtable.h \
- /usr/include/c++/13/bits/hashtable_policy.h \
- /usr/include/c++/13/bits/enable_special_members.h \
- /usr/include/c++/13/array /usr/include/c++/13/compare \
- /usr/include/c++/13/iterator /usr/include/c++/13/bits/stream_iterator.h \
- /usr/include/c++/13/memory \
+ /usr/include/c++/13/stdexcept /usr/include/c++/13/exception \
+ /usr/include/c++/13/bits/exception_ptr.h \
+ /usr/include/c++/13/bits/cxxabi_init_exception.h \
+ /usr/include/c++/13/bits/nested_exception.h \
+ /usr/include/c++/13/bits/streambuf.tcc /usr/include/c++/13/memory \
  /usr/include/c++/13/bits/stl_raw_storage_iter.h \
- /usr/include/c++/13/bits/align.h /usr/include/c++/13/bits/unique_ptr.h \
+ /usr/include/c++/13/bits/align.h \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
+ /usr/include/c++/13/bits/unique_ptr.h \
  /usr/include/c++/13/bits/shared_ptr.h \
  /usr/include/c++/13/bits/shared_ptr_base.h \
  /usr/include/c++/13/bits/allocated_ptr.h \
@@ -210,7 +188,9 @@ CMakeFiles/federated.dir/src/json_aggregator.cpp.o: \
  /usr/include/nlohmann/detail/abi_macros.hpp \
  /usr/include/nlohmann/detail/conversions/from_json.hpp \
  /usr/include/c++/13/forward_list /usr/include/c++/13/bits/forward_list.h \
- /usr/include/c++/13/bits/forward_list.tcc /usr/include/c++/13/valarray \
+ /usr/include/c++/13/bits/forward_list.tcc /usr/include/c++/13/map \
+ /usr/include/c++/13/bits/stl_tree.h /usr/include/c++/13/bits/stl_map.h \
+ /usr/include/c++/13/bits/stl_multimap.h /usr/include/c++/13/valarray \
  /usr/include/c++/13/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -244,7 +224,7 @@ CMakeFiles/federated.dir/src/json_aggregator.cpp.o: \
  /usr/include/c++/13/bits/mask_array.h \
  /usr/include/c++/13/bits/indirect_array.h \
  /usr/include/nlohmann/detail/exceptions.hpp \
- /usr/include/nlohmann/detail/value_t.hpp \
+ /usr/include/nlohmann/detail/value_t.hpp /usr/include/c++/13/cstdint \
  /usr/include/nlohmann/detail/macro_scope.hpp \
  /usr/include/nlohmann/detail/meta/detected.hpp \
  /usr/include/nlohmann/detail/meta/void_t.hpp \
@@ -264,8 +244,26 @@ CMakeFiles/federated.dir/src/json_aggregator.cpp.o: \
  /usr/include/nlohmann/detail/meta/std_fs.hpp \
  /usr/include/c++/13/filesystem /usr/include/c++/13/bits/fs_fwd.h \
  /usr/include/c++/13/bits/chrono.h /usr/include/c++/13/ratio \
- /usr/include/c++/13/bits/parse_numbers.h \
- /usr/include/c++/13/bits/fs_path.h /usr/include/c++/13/codecvt \
+ /usr/include/c++/13/ctime /usr/include/c++/13/bits/parse_numbers.h \
+ /usr/include/c++/13/bits/fs_path.h /usr/include/c++/13/locale \
+ /usr/include/c++/13/bits/locale_facets.h /usr/include/c++/13/cwctype \
+ /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h \
+ /usr/include/c++/13/bits/locale_facets.tcc \
+ /usr/include/c++/13/bits/locale_facets_nonio.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/13/bits/codecvt.h \
+ /usr/include/c++/13/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/13/bits/locale_conv.h /usr/include/c++/13/iomanip \
+ /usr/include/c++/13/bits/quoted_string.h /usr/include/c++/13/sstream \
+ /usr/include/c++/13/istream /usr/include/c++/13/ios \
+ /usr/include/c++/13/bits/basic_ios.h \
+ /usr/include/c++/13/bits/basic_ios.tcc /usr/include/c++/13/ostream \
+ /usr/include/c++/13/bits/ostream.tcc \
+ /usr/include/c++/13/bits/istream.tcc \
+ /usr/include/c++/13/bits/sstream.tcc /usr/include/c++/13/codecvt \
  /usr/include/c++/13/bits/fs_dir.h /usr/include/c++/13/bits/fs_ops.h \
  /usr/include/nlohmann/detail/conversions/to_json.hpp \
  /usr/include/nlohmann/detail/iterators/iteration_proxy.hpp \
@@ -293,6 +291,42 @@ CMakeFiles/federated.dir/src/json_aggregator.cpp.o: \
  /usr/include/nlohmann/ordered_map.hpp /usr/include/c++/13/any \
  /usr/include/nlohmann/detail/macro_unscope.hpp \
  /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
- /usr/include/c++/13/chrono /usr/include/c++/13/set \
- /usr/include/c++/13/bits/stl_set.h \
- /usr/include/c++/13/bits/stl_multiset.h
+ /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/coordinator/../common/logging.hpp \
+ /usr/include/c++/13/iostream \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/mpi.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/mpi_portable_platform.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/mpicxx.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/constants.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/functions.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/datatype.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/exception.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/op.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/status.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/request.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/group.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/comm.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/win.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/file.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/errhandler.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/intracomm.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/topology.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/intercomm.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/info.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/datatype_inln.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/functions_inln.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/request_inln.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/comm_inln.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/intracomm_inln.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/topology_inln.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/intercomm_inln.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/group_inln.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/op_inln.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/errhandler_inln.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/status_inln.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/info_inln.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/win_inln.h \
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/file_inln.h \
+ /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/coordinator/../common/mpi_codec.hpp \
+ /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/coordinator/../common/time.hpp \
+ /usr/include/c++/13/chrono \
+ /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/coordinator/report_writer.hpp

@@ -83,158 +83,158 @@ CMakeFiles/federated.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/federated.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/main.cpp -o CMakeFiles/federated.dir/src/main.cpp.s
 
-CMakeFiles/federated.dir/src/db.cpp.o: CMakeFiles/federated.dir/flags.make
-CMakeFiles/federated.dir/src/db.cpp.o: /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/db.cpp
-CMakeFiles/federated.dir/src/db.cpp.o: CMakeFiles/federated.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/federated.dir/src/db.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/federated.dir/src/db.cpp.o -MF CMakeFiles/federated.dir/src/db.cpp.o.d -o CMakeFiles/federated.dir/src/db.cpp.o -c /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/db.cpp
+CMakeFiles/federated.dir/src/common/config.cpp.o: CMakeFiles/federated.dir/flags.make
+CMakeFiles/federated.dir/src/common/config.cpp.o: /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/common/config.cpp
+CMakeFiles/federated.dir/src/common/config.cpp.o: CMakeFiles/federated.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/federated.dir/src/common/config.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/federated.dir/src/common/config.cpp.o -MF CMakeFiles/federated.dir/src/common/config.cpp.o.d -o CMakeFiles/federated.dir/src/common/config.cpp.o -c /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/common/config.cpp
 
-CMakeFiles/federated.dir/src/db.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/federated.dir/src/db.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/db.cpp > CMakeFiles/federated.dir/src/db.cpp.i
+CMakeFiles/federated.dir/src/common/config.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/federated.dir/src/common/config.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/common/config.cpp > CMakeFiles/federated.dir/src/common/config.cpp.i
 
-CMakeFiles/federated.dir/src/db.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/federated.dir/src/db.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/db.cpp -o CMakeFiles/federated.dir/src/db.cpp.s
+CMakeFiles/federated.dir/src/common/config.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/federated.dir/src/common/config.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/common/config.cpp -o CMakeFiles/federated.dir/src/common/config.cpp.s
 
-CMakeFiles/federated.dir/src/schema_detect.cpp.o: CMakeFiles/federated.dir/flags.make
-CMakeFiles/federated.dir/src/schema_detect.cpp.o: /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/schema_detect.cpp
-CMakeFiles/federated.dir/src/schema_detect.cpp.o: CMakeFiles/federated.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/federated.dir/src/schema_detect.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/federated.dir/src/schema_detect.cpp.o -MF CMakeFiles/federated.dir/src/schema_detect.cpp.o.d -o CMakeFiles/federated.dir/src/schema_detect.cpp.o -c /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/schema_detect.cpp
+CMakeFiles/federated.dir/src/common/mpi_codec.cpp.o: CMakeFiles/federated.dir/flags.make
+CMakeFiles/federated.dir/src/common/mpi_codec.cpp.o: /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/common/mpi_codec.cpp
+CMakeFiles/federated.dir/src/common/mpi_codec.cpp.o: CMakeFiles/federated.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/federated.dir/src/common/mpi_codec.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/federated.dir/src/common/mpi_codec.cpp.o -MF CMakeFiles/federated.dir/src/common/mpi_codec.cpp.o.d -o CMakeFiles/federated.dir/src/common/mpi_codec.cpp.o -c /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/common/mpi_codec.cpp
 
-CMakeFiles/federated.dir/src/schema_detect.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/federated.dir/src/schema_detect.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/schema_detect.cpp > CMakeFiles/federated.dir/src/schema_detect.cpp.i
+CMakeFiles/federated.dir/src/common/mpi_codec.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/federated.dir/src/common/mpi_codec.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/common/mpi_codec.cpp > CMakeFiles/federated.dir/src/common/mpi_codec.cpp.i
 
-CMakeFiles/federated.dir/src/schema_detect.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/federated.dir/src/schema_detect.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/schema_detect.cpp -o CMakeFiles/federated.dir/src/schema_detect.cpp.s
+CMakeFiles/federated.dir/src/common/mpi_codec.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/federated.dir/src/common/mpi_codec.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/common/mpi_codec.cpp -o CMakeFiles/federated.dir/src/common/mpi_codec.cpp.s
 
-CMakeFiles/federated.dir/src/contract.cpp.o: CMakeFiles/federated.dir/flags.make
-CMakeFiles/federated.dir/src/contract.cpp.o: /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/contract.cpp
-CMakeFiles/federated.dir/src/contract.cpp.o: CMakeFiles/federated.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/federated.dir/src/contract.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/federated.dir/src/contract.cpp.o -MF CMakeFiles/federated.dir/src/contract.cpp.o.d -o CMakeFiles/federated.dir/src/contract.cpp.o -c /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/contract.cpp
+CMakeFiles/federated.dir/src/db/pg_client.cpp.o: CMakeFiles/federated.dir/flags.make
+CMakeFiles/federated.dir/src/db/pg_client.cpp.o: /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/db/pg_client.cpp
+CMakeFiles/federated.dir/src/db/pg_client.cpp.o: CMakeFiles/federated.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/federated.dir/src/db/pg_client.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/federated.dir/src/db/pg_client.cpp.o -MF CMakeFiles/federated.dir/src/db/pg_client.cpp.o.d -o CMakeFiles/federated.dir/src/db/pg_client.cpp.o -c /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/db/pg_client.cpp
 
-CMakeFiles/federated.dir/src/contract.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/federated.dir/src/contract.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/contract.cpp > CMakeFiles/federated.dir/src/contract.cpp.i
+CMakeFiles/federated.dir/src/db/pg_client.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/federated.dir/src/db/pg_client.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/db/pg_client.cpp > CMakeFiles/federated.dir/src/db/pg_client.cpp.i
 
-CMakeFiles/federated.dir/src/contract.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/federated.dir/src/contract.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/contract.cpp -o CMakeFiles/federated.dir/src/contract.cpp.s
+CMakeFiles/federated.dir/src/db/pg_client.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/federated.dir/src/db/pg_client.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/db/pg_client.cpp -o CMakeFiles/federated.dir/src/db/pg_client.cpp.s
 
-CMakeFiles/federated.dir/src/aggregate.cpp.o: CMakeFiles/federated.dir/flags.make
-CMakeFiles/federated.dir/src/aggregate.cpp.o: /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/aggregate.cpp
-CMakeFiles/federated.dir/src/aggregate.cpp.o: CMakeFiles/federated.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/federated.dir/src/aggregate.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/federated.dir/src/aggregate.cpp.o -MF CMakeFiles/federated.dir/src/aggregate.cpp.o.d -o CMakeFiles/federated.dir/src/aggregate.cpp.o -c /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/aggregate.cpp
+CMakeFiles/federated.dir/src/db/sql_template.cpp.o: CMakeFiles/federated.dir/flags.make
+CMakeFiles/federated.dir/src/db/sql_template.cpp.o: /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/db/sql_template.cpp
+CMakeFiles/federated.dir/src/db/sql_template.cpp.o: CMakeFiles/federated.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/federated.dir/src/db/sql_template.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/federated.dir/src/db/sql_template.cpp.o -MF CMakeFiles/federated.dir/src/db/sql_template.cpp.o.d -o CMakeFiles/federated.dir/src/db/sql_template.cpp.o -c /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/db/sql_template.cpp
 
-CMakeFiles/federated.dir/src/aggregate.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/federated.dir/src/aggregate.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/aggregate.cpp > CMakeFiles/federated.dir/src/aggregate.cpp.i
+CMakeFiles/federated.dir/src/db/sql_template.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/federated.dir/src/db/sql_template.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/db/sql_template.cpp > CMakeFiles/federated.dir/src/db/sql_template.cpp.i
 
-CMakeFiles/federated.dir/src/aggregate.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/federated.dir/src/aggregate.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/aggregate.cpp -o CMakeFiles/federated.dir/src/aggregate.cpp.s
+CMakeFiles/federated.dir/src/db/sql_template.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/federated.dir/src/db/sql_template.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/db/sql_template.cpp -o CMakeFiles/federated.dir/src/db/sql_template.cpp.s
 
-CMakeFiles/federated.dir/src/serialize.cpp.o: CMakeFiles/federated.dir/flags.make
-CMakeFiles/federated.dir/src/serialize.cpp.o: /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/serialize.cpp
-CMakeFiles/federated.dir/src/serialize.cpp.o: CMakeFiles/federated.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/federated.dir/src/serialize.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/federated.dir/src/serialize.cpp.o -MF CMakeFiles/federated.dir/src/serialize.cpp.o.d -o CMakeFiles/federated.dir/src/serialize.cpp.o -c /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/serialize.cpp
+CMakeFiles/federated.dir/src/worker/discovery.cpp.o: CMakeFiles/federated.dir/flags.make
+CMakeFiles/federated.dir/src/worker/discovery.cpp.o: /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/discovery.cpp
+CMakeFiles/federated.dir/src/worker/discovery.cpp.o: CMakeFiles/federated.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/federated.dir/src/worker/discovery.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/federated.dir/src/worker/discovery.cpp.o -MF CMakeFiles/federated.dir/src/worker/discovery.cpp.o.d -o CMakeFiles/federated.dir/src/worker/discovery.cpp.o -c /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/discovery.cpp
 
-CMakeFiles/federated.dir/src/serialize.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/federated.dir/src/serialize.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/serialize.cpp > CMakeFiles/federated.dir/src/serialize.cpp.i
+CMakeFiles/federated.dir/src/worker/discovery.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/federated.dir/src/worker/discovery.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/discovery.cpp > CMakeFiles/federated.dir/src/worker/discovery.cpp.i
 
-CMakeFiles/federated.dir/src/serialize.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/federated.dir/src/serialize.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/serialize.cpp -o CMakeFiles/federated.dir/src/serialize.cpp.s
+CMakeFiles/federated.dir/src/worker/discovery.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/federated.dir/src/worker/discovery.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/discovery.cpp -o CMakeFiles/federated.dir/src/worker/discovery.cpp.s
 
-CMakeFiles/federated.dir/src/json_aggregator.cpp.o: CMakeFiles/federated.dir/flags.make
-CMakeFiles/federated.dir/src/json_aggregator.cpp.o: /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/json_aggregator.cpp
-CMakeFiles/federated.dir/src/json_aggregator.cpp.o: CMakeFiles/federated.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/federated.dir/src/json_aggregator.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/federated.dir/src/json_aggregator.cpp.o -MF CMakeFiles/federated.dir/src/json_aggregator.cpp.o.d -o CMakeFiles/federated.dir/src/json_aggregator.cpp.o -c /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/json_aggregator.cpp
+CMakeFiles/federated.dir/src/worker/executor.cpp.o: CMakeFiles/federated.dir/flags.make
+CMakeFiles/federated.dir/src/worker/executor.cpp.o: /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/executor.cpp
+CMakeFiles/federated.dir/src/worker/executor.cpp.o: CMakeFiles/federated.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/federated.dir/src/worker/executor.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/federated.dir/src/worker/executor.cpp.o -MF CMakeFiles/federated.dir/src/worker/executor.cpp.o.d -o CMakeFiles/federated.dir/src/worker/executor.cpp.o -c /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/executor.cpp
 
-CMakeFiles/federated.dir/src/json_aggregator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/federated.dir/src/json_aggregator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/json_aggregator.cpp > CMakeFiles/federated.dir/src/json_aggregator.cpp.i
+CMakeFiles/federated.dir/src/worker/executor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/federated.dir/src/worker/executor.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/executor.cpp > CMakeFiles/federated.dir/src/worker/executor.cpp.i
 
-CMakeFiles/federated.dir/src/json_aggregator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/federated.dir/src/json_aggregator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/json_aggregator.cpp -o CMakeFiles/federated.dir/src/json_aggregator.cpp.s
+CMakeFiles/federated.dir/src/worker/executor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/federated.dir/src/worker/executor.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/executor.cpp -o CMakeFiles/federated.dir/src/worker/executor.cpp.s
 
-CMakeFiles/federated.dir/src/adapters/schema_a.cpp.o: CMakeFiles/federated.dir/flags.make
-CMakeFiles/federated.dir/src/adapters/schema_a.cpp.o: /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/adapters/schema_a.cpp
-CMakeFiles/federated.dir/src/adapters/schema_a.cpp.o: CMakeFiles/federated.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/federated.dir/src/adapters/schema_a.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/federated.dir/src/adapters/schema_a.cpp.o -MF CMakeFiles/federated.dir/src/adapters/schema_a.cpp.o.d -o CMakeFiles/federated.dir/src/adapters/schema_a.cpp.o -c /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/adapters/schema_a.cpp
+CMakeFiles/federated.dir/src/worker/worker.cpp.o: CMakeFiles/federated.dir/flags.make
+CMakeFiles/federated.dir/src/worker/worker.cpp.o: /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/worker.cpp
+CMakeFiles/federated.dir/src/worker/worker.cpp.o: CMakeFiles/federated.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/federated.dir/src/worker/worker.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/federated.dir/src/worker/worker.cpp.o -MF CMakeFiles/federated.dir/src/worker/worker.cpp.o.d -o CMakeFiles/federated.dir/src/worker/worker.cpp.o -c /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/worker.cpp
 
-CMakeFiles/federated.dir/src/adapters/schema_a.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/federated.dir/src/adapters/schema_a.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/adapters/schema_a.cpp > CMakeFiles/federated.dir/src/adapters/schema_a.cpp.i
+CMakeFiles/federated.dir/src/worker/worker.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/federated.dir/src/worker/worker.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/worker.cpp > CMakeFiles/federated.dir/src/worker/worker.cpp.i
 
-CMakeFiles/federated.dir/src/adapters/schema_a.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/federated.dir/src/adapters/schema_a.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/adapters/schema_a.cpp -o CMakeFiles/federated.dir/src/adapters/schema_a.cpp.s
+CMakeFiles/federated.dir/src/worker/worker.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/federated.dir/src/worker/worker.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/worker.cpp -o CMakeFiles/federated.dir/src/worker/worker.cpp.s
 
-CMakeFiles/federated.dir/src/adapters/schema_b.cpp.o: CMakeFiles/federated.dir/flags.make
-CMakeFiles/federated.dir/src/adapters/schema_b.cpp.o: /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/adapters/schema_b.cpp
-CMakeFiles/federated.dir/src/adapters/schema_b.cpp.o: CMakeFiles/federated.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/federated.dir/src/adapters/schema_b.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/federated.dir/src/adapters/schema_b.cpp.o -MF CMakeFiles/federated.dir/src/adapters/schema_b.cpp.o.d -o CMakeFiles/federated.dir/src/adapters/schema_b.cpp.o -c /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/adapters/schema_b.cpp
+CMakeFiles/federated.dir/src/coordinator/coordinator.cpp.o: CMakeFiles/federated.dir/flags.make
+CMakeFiles/federated.dir/src/coordinator/coordinator.cpp.o: /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/coordinator/coordinator.cpp
+CMakeFiles/federated.dir/src/coordinator/coordinator.cpp.o: CMakeFiles/federated.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/federated.dir/src/coordinator/coordinator.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/federated.dir/src/coordinator/coordinator.cpp.o -MF CMakeFiles/federated.dir/src/coordinator/coordinator.cpp.o.d -o CMakeFiles/federated.dir/src/coordinator/coordinator.cpp.o -c /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/coordinator/coordinator.cpp
 
-CMakeFiles/federated.dir/src/adapters/schema_b.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/federated.dir/src/adapters/schema_b.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/adapters/schema_b.cpp > CMakeFiles/federated.dir/src/adapters/schema_b.cpp.i
+CMakeFiles/federated.dir/src/coordinator/coordinator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/federated.dir/src/coordinator/coordinator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/coordinator/coordinator.cpp > CMakeFiles/federated.dir/src/coordinator/coordinator.cpp.i
 
-CMakeFiles/federated.dir/src/adapters/schema_b.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/federated.dir/src/adapters/schema_b.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/adapters/schema_b.cpp -o CMakeFiles/federated.dir/src/adapters/schema_b.cpp.s
+CMakeFiles/federated.dir/src/coordinator/coordinator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/federated.dir/src/coordinator/coordinator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/coordinator/coordinator.cpp -o CMakeFiles/federated.dir/src/coordinator/coordinator.cpp.s
 
-CMakeFiles/federated.dir/src/adapters/schema_c.cpp.o: CMakeFiles/federated.dir/flags.make
-CMakeFiles/federated.dir/src/adapters/schema_c.cpp.o: /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/adapters/schema_c.cpp
-CMakeFiles/federated.dir/src/adapters/schema_c.cpp.o: CMakeFiles/federated.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/federated.dir/src/adapters/schema_c.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/federated.dir/src/adapters/schema_c.cpp.o -MF CMakeFiles/federated.dir/src/adapters/schema_c.cpp.o.d -o CMakeFiles/federated.dir/src/adapters/schema_c.cpp.o -c /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/adapters/schema_c.cpp
+CMakeFiles/federated.dir/src/coordinator/report_writer.cpp.o: CMakeFiles/federated.dir/flags.make
+CMakeFiles/federated.dir/src/coordinator/report_writer.cpp.o: /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/coordinator/report_writer.cpp
+CMakeFiles/federated.dir/src/coordinator/report_writer.cpp.o: CMakeFiles/federated.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/federated.dir/src/coordinator/report_writer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/federated.dir/src/coordinator/report_writer.cpp.o -MF CMakeFiles/federated.dir/src/coordinator/report_writer.cpp.o.d -o CMakeFiles/federated.dir/src/coordinator/report_writer.cpp.o -c /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/coordinator/report_writer.cpp
 
-CMakeFiles/federated.dir/src/adapters/schema_c.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/federated.dir/src/adapters/schema_c.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/adapters/schema_c.cpp > CMakeFiles/federated.dir/src/adapters/schema_c.cpp.i
+CMakeFiles/federated.dir/src/coordinator/report_writer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/federated.dir/src/coordinator/report_writer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/coordinator/report_writer.cpp > CMakeFiles/federated.dir/src/coordinator/report_writer.cpp.i
 
-CMakeFiles/federated.dir/src/adapters/schema_c.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/federated.dir/src/adapters/schema_c.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/adapters/schema_c.cpp -o CMakeFiles/federated.dir/src/adapters/schema_c.cpp.s
+CMakeFiles/federated.dir/src/coordinator/report_writer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/federated.dir/src/coordinator/report_writer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/coordinator/report_writer.cpp -o CMakeFiles/federated.dir/src/coordinator/report_writer.cpp.s
 
 # Object files for target federated
 federated_OBJECTS = \
 "CMakeFiles/federated.dir/src/main.cpp.o" \
-"CMakeFiles/federated.dir/src/db.cpp.o" \
-"CMakeFiles/federated.dir/src/schema_detect.cpp.o" \
-"CMakeFiles/federated.dir/src/contract.cpp.o" \
-"CMakeFiles/federated.dir/src/aggregate.cpp.o" \
-"CMakeFiles/federated.dir/src/serialize.cpp.o" \
-"CMakeFiles/federated.dir/src/json_aggregator.cpp.o" \
-"CMakeFiles/federated.dir/src/adapters/schema_a.cpp.o" \
-"CMakeFiles/federated.dir/src/adapters/schema_b.cpp.o" \
-"CMakeFiles/federated.dir/src/adapters/schema_c.cpp.o"
+"CMakeFiles/federated.dir/src/common/config.cpp.o" \
+"CMakeFiles/federated.dir/src/common/mpi_codec.cpp.o" \
+"CMakeFiles/federated.dir/src/db/pg_client.cpp.o" \
+"CMakeFiles/federated.dir/src/db/sql_template.cpp.o" \
+"CMakeFiles/federated.dir/src/worker/discovery.cpp.o" \
+"CMakeFiles/federated.dir/src/worker/executor.cpp.o" \
+"CMakeFiles/federated.dir/src/worker/worker.cpp.o" \
+"CMakeFiles/federated.dir/src/coordinator/coordinator.cpp.o" \
+"CMakeFiles/federated.dir/src/coordinator/report_writer.cpp.o"
 
 # External object files for target federated
 federated_EXTERNAL_OBJECTS =
 
 federated: CMakeFiles/federated.dir/src/main.cpp.o
-federated: CMakeFiles/federated.dir/src/db.cpp.o
-federated: CMakeFiles/federated.dir/src/schema_detect.cpp.o
-federated: CMakeFiles/federated.dir/src/contract.cpp.o
-federated: CMakeFiles/federated.dir/src/aggregate.cpp.o
-federated: CMakeFiles/federated.dir/src/serialize.cpp.o
-federated: CMakeFiles/federated.dir/src/json_aggregator.cpp.o
-federated: CMakeFiles/federated.dir/src/adapters/schema_a.cpp.o
-federated: CMakeFiles/federated.dir/src/adapters/schema_b.cpp.o
-federated: CMakeFiles/federated.dir/src/adapters/schema_c.cpp.o
+federated: CMakeFiles/federated.dir/src/common/config.cpp.o
+federated: CMakeFiles/federated.dir/src/common/mpi_codec.cpp.o
+federated: CMakeFiles/federated.dir/src/db/pg_client.cpp.o
+federated: CMakeFiles/federated.dir/src/db/sql_template.cpp.o
+federated: CMakeFiles/federated.dir/src/worker/discovery.cpp.o
+federated: CMakeFiles/federated.dir/src/worker/executor.cpp.o
+federated: CMakeFiles/federated.dir/src/worker/worker.cpp.o
+federated: CMakeFiles/federated.dir/src/coordinator/coordinator.cpp.o
+federated: CMakeFiles/federated.dir/src/coordinator/report_writer.cpp.o
 federated: CMakeFiles/federated.dir/build.make
 federated: /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi_cxx.so
 federated: /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so

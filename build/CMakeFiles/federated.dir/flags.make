@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/usr/include/postgresql -I/home/hbrissett/Documents/tcss-558/federated-government-statistics/src -isystem /usr/lib/x86_64-linux-gnu/openmpi/include -isystem /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi
 
-CXX_FLAGS = -std=gnu++17
+CXX_FLAGS = -std=gnu++17 -Wall -Wextra -Wpedantic
 

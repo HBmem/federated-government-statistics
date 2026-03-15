@@ -11,11 +11,11 @@
   },
 
   "counties": [
-    { "label": "metro",   "fips": "53033", "name": "King",       "rows": 50000 },
-    { "label": "medium1", "fips": "53061", "name": "Snohomish",  "rows": 20000 },
-    { "label": "medium2", "fips": "53053", "name": "Pierce",     "rows": 20000 },
-    { "label": "rural1",  "fips": "53019", "name": "Ferry",      "rows": 5000  },
-    { "label": "rural2",  "fips": "53023", "name": "Garfield",   "rows": 5000  }
+    { "label": "metro",   "fips": "53033", "name": "King",       "rows": 500000 },
+    { "label": "medium1", "fips": "53061", "name": "Snohomish",  "rows": 200000 },
+    { "label": "medium2", "fips": "53053", "name": "Pierce",     "rows": 200000 },
+    { "label": "rural1",  "fips": "53019", "name": "Ferry",      "rows": 50000  },
+    { "label": "rural2",  "fips": "53023", "name": "Garfield",   "rows": 50000  }
   ],
 
   "distributions": {

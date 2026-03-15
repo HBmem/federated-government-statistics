@@ -8,16 +8,16 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/hbrissett/Documents/tcss-558/federated-government-statistics/src/adapters/schema_a.cpp" "CMakeFiles/federated.dir/src/adapters/schema_a.cpp.o" "gcc" "CMakeFiles/federated.dir/src/adapters/schema_a.cpp.o.d"
-  "/home/hbrissett/Documents/tcss-558/federated-government-statistics/src/adapters/schema_b.cpp" "CMakeFiles/federated.dir/src/adapters/schema_b.cpp.o" "gcc" "CMakeFiles/federated.dir/src/adapters/schema_b.cpp.o.d"
-  "/home/hbrissett/Documents/tcss-558/federated-government-statistics/src/adapters/schema_c.cpp" "CMakeFiles/federated.dir/src/adapters/schema_c.cpp.o" "gcc" "CMakeFiles/federated.dir/src/adapters/schema_c.cpp.o.d"
-  "/home/hbrissett/Documents/tcss-558/federated-government-statistics/src/aggregate.cpp" "CMakeFiles/federated.dir/src/aggregate.cpp.o" "gcc" "CMakeFiles/federated.dir/src/aggregate.cpp.o.d"
-  "/home/hbrissett/Documents/tcss-558/federated-government-statistics/src/contract.cpp" "CMakeFiles/federated.dir/src/contract.cpp.o" "gcc" "CMakeFiles/federated.dir/src/contract.cpp.o.d"
-  "/home/hbrissett/Documents/tcss-558/federated-government-statistics/src/db.cpp" "CMakeFiles/federated.dir/src/db.cpp.o" "gcc" "CMakeFiles/federated.dir/src/db.cpp.o.d"
-  "/home/hbrissett/Documents/tcss-558/federated-government-statistics/src/json_aggregator.cpp" "CMakeFiles/federated.dir/src/json_aggregator.cpp.o" "gcc" "CMakeFiles/federated.dir/src/json_aggregator.cpp.o.d"
+  "/home/hbrissett/Documents/tcss-558/federated-government-statistics/src/common/config.cpp" "CMakeFiles/federated.dir/src/common/config.cpp.o" "gcc" "CMakeFiles/federated.dir/src/common/config.cpp.o.d"
+  "/home/hbrissett/Documents/tcss-558/federated-government-statistics/src/common/mpi_codec.cpp" "CMakeFiles/federated.dir/src/common/mpi_codec.cpp.o" "gcc" "CMakeFiles/federated.dir/src/common/mpi_codec.cpp.o.d"
+  "/home/hbrissett/Documents/tcss-558/federated-government-statistics/src/coordinator/coordinator.cpp" "CMakeFiles/federated.dir/src/coordinator/coordinator.cpp.o" "gcc" "CMakeFiles/federated.dir/src/coordinator/coordinator.cpp.o.d"
+  "/home/hbrissett/Documents/tcss-558/federated-government-statistics/src/coordinator/report_writer.cpp" "CMakeFiles/federated.dir/src/coordinator/report_writer.cpp.o" "gcc" "CMakeFiles/federated.dir/src/coordinator/report_writer.cpp.o.d"
+  "/home/hbrissett/Documents/tcss-558/federated-government-statistics/src/db/pg_client.cpp" "CMakeFiles/federated.dir/src/db/pg_client.cpp.o" "gcc" "CMakeFiles/federated.dir/src/db/pg_client.cpp.o.d"
+  "/home/hbrissett/Documents/tcss-558/federated-government-statistics/src/db/sql_template.cpp" "CMakeFiles/federated.dir/src/db/sql_template.cpp.o" "gcc" "CMakeFiles/federated.dir/src/db/sql_template.cpp.o.d"
   "/home/hbrissett/Documents/tcss-558/federated-government-statistics/src/main.cpp" "CMakeFiles/federated.dir/src/main.cpp.o" "gcc" "CMakeFiles/federated.dir/src/main.cpp.o.d"
-  "/home/hbrissett/Documents/tcss-558/federated-government-statistics/src/schema_detect.cpp" "CMakeFiles/federated.dir/src/schema_detect.cpp.o" "gcc" "CMakeFiles/federated.dir/src/schema_detect.cpp.o.d"
-  "/home/hbrissett/Documents/tcss-558/federated-government-statistics/src/serialize.cpp" "CMakeFiles/federated.dir/src/serialize.cpp.o" "gcc" "CMakeFiles/federated.dir/src/serialize.cpp.o.d"
+  "/home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/discovery.cpp" "CMakeFiles/federated.dir/src/worker/discovery.cpp.o" "gcc" "CMakeFiles/federated.dir/src/worker/discovery.cpp.o.d"
+  "/home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/executor.cpp" "CMakeFiles/federated.dir/src/worker/executor.cpp.o" "gcc" "CMakeFiles/federated.dir/src/worker/executor.cpp.o.d"
+  "/home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/worker.cpp" "CMakeFiles/federated.dir/src/worker/worker.cpp.o" "gcc" "CMakeFiles/federated.dir/src/worker/worker.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

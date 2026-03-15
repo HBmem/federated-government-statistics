@@ -14,5 +14,9 @@ venv.bak/
 # Data files
 data-generation/data/
 
+# Output files
+output/runs/
+
 # Remove old version of code
 old-files/
+debug/

@@ -5,7 +5,7 @@
             "end_date": "2026-12-31"
         },
         "category": "demographic",
-        "output_dir": "Output/runs",
+        "output_dir": "../output/runs",
         "include_node_payloads": true
     },
 
@@ -29,7 +29,7 @@
             "unemployment": true,
             "quality": true
         },
-        "bucket_config_path": "Config/buckets.json"
+        "bucket_config_path": "../config/buckets.json"
     },
 
     "residency_rules": {
@@ -43,12 +43,12 @@
     },
 
     "query_templates": {
-        "registry_path": "Queries/registry.json",
+        "registry_path": "../queries/registry.json",
         "allow_probe_fallback": true
     },
 
   "logging": {
-        "log_dir": "Output/logs",
+        "log_dir": "../output/logs",
         "level": "info"
     }
 }

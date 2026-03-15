@@ -129,173 +129,149 @@ federated/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/build
 .PHONY : federated/fast
 
-src/adapters/schema_a.o: src/adapters/schema_a.cpp.o
-.PHONY : src/adapters/schema_a.o
+src/common/config.o: src/common/config.cpp.o
+.PHONY : src/common/config.o
 
 # target to build an object file
-src/adapters/schema_a.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/adapters/schema_a.cpp.o
-.PHONY : src/adapters/schema_a.cpp.o
+src/common/config.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/common/config.cpp.o
+.PHONY : src/common/config.cpp.o
 
-src/adapters/schema_a.i: src/adapters/schema_a.cpp.i
-.PHONY : src/adapters/schema_a.i
+src/common/config.i: src/common/config.cpp.i
+.PHONY : src/common/config.i
 
 # target to preprocess a source file
-src/adapters/schema_a.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/adapters/schema_a.cpp.i
-.PHONY : src/adapters/schema_a.cpp.i
+src/common/config.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/common/config.cpp.i
+.PHONY : src/common/config.cpp.i
 
-src/adapters/schema_a.s: src/adapters/schema_a.cpp.s
-.PHONY : src/adapters/schema_a.s
+src/common/config.s: src/common/config.cpp.s
+.PHONY : src/common/config.s
 
 # target to generate assembly for a file
-src/adapters/schema_a.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/adapters/schema_a.cpp.s
-.PHONY : src/adapters/schema_a.cpp.s
+src/common/config.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/common/config.cpp.s
+.PHONY : src/common/config.cpp.s
 
-src/adapters/schema_b.o: src/adapters/schema_b.cpp.o
-.PHONY : src/adapters/schema_b.o
+src/common/mpi_codec.o: src/common/mpi_codec.cpp.o
+.PHONY : src/common/mpi_codec.o
 
 # target to build an object file
-src/adapters/schema_b.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/adapters/schema_b.cpp.o
-.PHONY : src/adapters/schema_b.cpp.o
+src/common/mpi_codec.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/common/mpi_codec.cpp.o
+.PHONY : src/common/mpi_codec.cpp.o
 
-src/adapters/schema_b.i: src/adapters/schema_b.cpp.i
-.PHONY : src/adapters/schema_b.i
+src/common/mpi_codec.i: src/common/mpi_codec.cpp.i
+.PHONY : src/common/mpi_codec.i
 
 # target to preprocess a source file
-src/adapters/schema_b.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/adapters/schema_b.cpp.i
-.PHONY : src/adapters/schema_b.cpp.i
+src/common/mpi_codec.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/common/mpi_codec.cpp.i
+.PHONY : src/common/mpi_codec.cpp.i
 
-src/adapters/schema_b.s: src/adapters/schema_b.cpp.s
-.PHONY : src/adapters/schema_b.s
+src/common/mpi_codec.s: src/common/mpi_codec.cpp.s
+.PHONY : src/common/mpi_codec.s
 
 # target to generate assembly for a file
-src/adapters/schema_b.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/adapters/schema_b.cpp.s
-.PHONY : src/adapters/schema_b.cpp.s
+src/common/mpi_codec.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/common/mpi_codec.cpp.s
+.PHONY : src/common/mpi_codec.cpp.s
 
-src/adapters/schema_c.o: src/adapters/schema_c.cpp.o
-.PHONY : src/adapters/schema_c.o
+src/coordinator/coordinator.o: src/coordinator/coordinator.cpp.o
+.PHONY : src/coordinator/coordinator.o
 
 # target to build an object file
-src/adapters/schema_c.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/adapters/schema_c.cpp.o
-.PHONY : src/adapters/schema_c.cpp.o
+src/coordinator/coordinator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/coordinator/coordinator.cpp.o
+.PHONY : src/coordinator/coordinator.cpp.o
 
-src/adapters/schema_c.i: src/adapters/schema_c.cpp.i
-.PHONY : src/adapters/schema_c.i
+src/coordinator/coordinator.i: src/coordinator/coordinator.cpp.i
+.PHONY : src/coordinator/coordinator.i
 
 # target to preprocess a source file
-src/adapters/schema_c.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/adapters/schema_c.cpp.i
-.PHONY : src/adapters/schema_c.cpp.i
+src/coordinator/coordinator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/coordinator/coordinator.cpp.i
+.PHONY : src/coordinator/coordinator.cpp.i
 
-src/adapters/schema_c.s: src/adapters/schema_c.cpp.s
-.PHONY : src/adapters/schema_c.s
+src/coordinator/coordinator.s: src/coordinator/coordinator.cpp.s
+.PHONY : src/coordinator/coordinator.s
 
 # target to generate assembly for a file
-src/adapters/schema_c.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/adapters/schema_c.cpp.s
-.PHONY : src/adapters/schema_c.cpp.s
+src/coordinator/coordinator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/coordinator/coordinator.cpp.s
+.PHONY : src/coordinator/coordinator.cpp.s
 
-src/aggregate.o: src/aggregate.cpp.o
-.PHONY : src/aggregate.o
+src/coordinator/report_writer.o: src/coordinator/report_writer.cpp.o
+.PHONY : src/coordinator/report_writer.o
 
 # target to build an object file
-src/aggregate.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/aggregate.cpp.o
-.PHONY : src/aggregate.cpp.o
+src/coordinator/report_writer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/coordinator/report_writer.cpp.o
+.PHONY : src/coordinator/report_writer.cpp.o
 
-src/aggregate.i: src/aggregate.cpp.i
-.PHONY : src/aggregate.i
+src/coordinator/report_writer.i: src/coordinator/report_writer.cpp.i
+.PHONY : src/coordinator/report_writer.i
 
 # target to preprocess a source file
-src/aggregate.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/aggregate.cpp.i
-.PHONY : src/aggregate.cpp.i
+src/coordinator/report_writer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/coordinator/report_writer.cpp.i
+.PHONY : src/coordinator/report_writer.cpp.i
 
-src/aggregate.s: src/aggregate.cpp.s
-.PHONY : src/aggregate.s
+src/coordinator/report_writer.s: src/coordinator/report_writer.cpp.s
+.PHONY : src/coordinator/report_writer.s
 
 # target to generate assembly for a file
-src/aggregate.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/aggregate.cpp.s
-.PHONY : src/aggregate.cpp.s
+src/coordinator/report_writer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/coordinator/report_writer.cpp.s
+.PHONY : src/coordinator/report_writer.cpp.s
 
-src/contract.o: src/contract.cpp.o
-.PHONY : src/contract.o
+src/db/pg_client.o: src/db/pg_client.cpp.o
+.PHONY : src/db/pg_client.o
 
 # target to build an object file
-src/contract.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/contract.cpp.o
-.PHONY : src/contract.cpp.o
+src/db/pg_client.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/db/pg_client.cpp.o
+.PHONY : src/db/pg_client.cpp.o
 
-src/contract.i: src/contract.cpp.i
-.PHONY : src/contract.i
+src/db/pg_client.i: src/db/pg_client.cpp.i
+.PHONY : src/db/pg_client.i
 
 # target to preprocess a source file
-src/contract.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/contract.cpp.i
-.PHONY : src/contract.cpp.i
+src/db/pg_client.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/db/pg_client.cpp.i
+.PHONY : src/db/pg_client.cpp.i
 
-src/contract.s: src/contract.cpp.s
-.PHONY : src/contract.s
+src/db/pg_client.s: src/db/pg_client.cpp.s
+.PHONY : src/db/pg_client.s
 
 # target to generate assembly for a file
-src/contract.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/contract.cpp.s
-.PHONY : src/contract.cpp.s
+src/db/pg_client.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/db/pg_client.cpp.s
+.PHONY : src/db/pg_client.cpp.s
 
-src/db.o: src/db.cpp.o
-.PHONY : src/db.o
+src/db/sql_template.o: src/db/sql_template.cpp.o
+.PHONY : src/db/sql_template.o
 
 # target to build an object file
-src/db.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/db.cpp.o
-.PHONY : src/db.cpp.o
+src/db/sql_template.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/db/sql_template.cpp.o
+.PHONY : src/db/sql_template.cpp.o
 
-src/db.i: src/db.cpp.i
-.PHONY : src/db.i
-
-# target to preprocess a source file
-src/db.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/db.cpp.i
-.PHONY : src/db.cpp.i
-
-src/db.s: src/db.cpp.s
-.PHONY : src/db.s
-
-# target to generate assembly for a file
-src/db.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/db.cpp.s
-.PHONY : src/db.cpp.s
-
-src/json_aggregator.o: src/json_aggregator.cpp.o
-.PHONY : src/json_aggregator.o
-
-# target to build an object file
-src/json_aggregator.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/json_aggregator.cpp.o
-.PHONY : src/json_aggregator.cpp.o
-
-src/json_aggregator.i: src/json_aggregator.cpp.i
-.PHONY : src/json_aggregator.i
+src/db/sql_template.i: src/db/sql_template.cpp.i
+.PHONY : src/db/sql_template.i
 
 # target to preprocess a source file
-src/json_aggregator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/json_aggregator.cpp.i
-.PHONY : src/json_aggregator.cpp.i
+src/db/sql_template.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/db/sql_template.cpp.i
+.PHONY : src/db/sql_template.cpp.i
 
-src/json_aggregator.s: src/json_aggregator.cpp.s
-.PHONY : src/json_aggregator.s
+src/db/sql_template.s: src/db/sql_template.cpp.s
+.PHONY : src/db/sql_template.s
 
 # target to generate assembly for a file
-src/json_aggregator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/json_aggregator.cpp.s
-.PHONY : src/json_aggregator.cpp.s
+src/db/sql_template.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/db/sql_template.cpp.s
+.PHONY : src/db/sql_template.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -321,53 +297,77 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/schema_detect.o: src/schema_detect.cpp.o
-.PHONY : src/schema_detect.o
+src/worker/discovery.o: src/worker/discovery.cpp.o
+.PHONY : src/worker/discovery.o
 
 # target to build an object file
-src/schema_detect.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/schema_detect.cpp.o
-.PHONY : src/schema_detect.cpp.o
+src/worker/discovery.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/worker/discovery.cpp.o
+.PHONY : src/worker/discovery.cpp.o
 
-src/schema_detect.i: src/schema_detect.cpp.i
-.PHONY : src/schema_detect.i
+src/worker/discovery.i: src/worker/discovery.cpp.i
+.PHONY : src/worker/discovery.i
 
 # target to preprocess a source file
-src/schema_detect.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/schema_detect.cpp.i
-.PHONY : src/schema_detect.cpp.i
+src/worker/discovery.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/worker/discovery.cpp.i
+.PHONY : src/worker/discovery.cpp.i
 
-src/schema_detect.s: src/schema_detect.cpp.s
-.PHONY : src/schema_detect.s
+src/worker/discovery.s: src/worker/discovery.cpp.s
+.PHONY : src/worker/discovery.s
 
 # target to generate assembly for a file
-src/schema_detect.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/schema_detect.cpp.s
-.PHONY : src/schema_detect.cpp.s
+src/worker/discovery.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/worker/discovery.cpp.s
+.PHONY : src/worker/discovery.cpp.s
 
-src/serialize.o: src/serialize.cpp.o
-.PHONY : src/serialize.o
+src/worker/executor.o: src/worker/executor.cpp.o
+.PHONY : src/worker/executor.o
 
 # target to build an object file
-src/serialize.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/serialize.cpp.o
-.PHONY : src/serialize.cpp.o
+src/worker/executor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/worker/executor.cpp.o
+.PHONY : src/worker/executor.cpp.o
 
-src/serialize.i: src/serialize.cpp.i
-.PHONY : src/serialize.i
+src/worker/executor.i: src/worker/executor.cpp.i
+.PHONY : src/worker/executor.i
 
 # target to preprocess a source file
-src/serialize.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/serialize.cpp.i
-.PHONY : src/serialize.cpp.i
+src/worker/executor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/worker/executor.cpp.i
+.PHONY : src/worker/executor.cpp.i
 
-src/serialize.s: src/serialize.cpp.s
-.PHONY : src/serialize.s
+src/worker/executor.s: src/worker/executor.cpp.s
+.PHONY : src/worker/executor.s
 
 # target to generate assembly for a file
-src/serialize.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/serialize.cpp.s
-.PHONY : src/serialize.cpp.s
+src/worker/executor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/worker/executor.cpp.s
+.PHONY : src/worker/executor.cpp.s
+
+src/worker/worker.o: src/worker/worker.cpp.o
+.PHONY : src/worker/worker.o
+
+# target to build an object file
+src/worker/worker.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/worker/worker.cpp.o
+.PHONY : src/worker/worker.cpp.o
+
+src/worker/worker.i: src/worker/worker.cpp.i
+.PHONY : src/worker/worker.i
+
+# target to preprocess a source file
+src/worker/worker.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/worker/worker.cpp.i
+.PHONY : src/worker/worker.cpp.i
+
+src/worker/worker.s: src/worker/worker.cpp.s
+.PHONY : src/worker/worker.s
+
+# target to generate assembly for a file
+src/worker/worker.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/worker/worker.cpp.s
+.PHONY : src/worker/worker.cpp.s
 
 # Help Target
 help:
@@ -378,36 +378,36 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... federated"
-	@echo "... src/adapters/schema_a.o"
-	@echo "... src/adapters/schema_a.i"
-	@echo "... src/adapters/schema_a.s"
-	@echo "... src/adapters/schema_b.o"
-	@echo "... src/adapters/schema_b.i"
-	@echo "... src/adapters/schema_b.s"
-	@echo "... src/adapters/schema_c.o"
-	@echo "... src/adapters/schema_c.i"
-	@echo "... src/adapters/schema_c.s"
-	@echo "... src/aggregate.o"
-	@echo "... src/aggregate.i"
-	@echo "... src/aggregate.s"
-	@echo "... src/contract.o"
-	@echo "... src/contract.i"
-	@echo "... src/contract.s"
-	@echo "... src/db.o"
-	@echo "... src/db.i"
-	@echo "... src/db.s"
-	@echo "... src/json_aggregator.o"
-	@echo "... src/json_aggregator.i"
-	@echo "... src/json_aggregator.s"
+	@echo "... src/common/config.o"
+	@echo "... src/common/config.i"
+	@echo "... src/common/config.s"
+	@echo "... src/common/mpi_codec.o"
+	@echo "... src/common/mpi_codec.i"
+	@echo "... src/common/mpi_codec.s"
+	@echo "... src/coordinator/coordinator.o"
+	@echo "... src/coordinator/coordinator.i"
+	@echo "... src/coordinator/coordinator.s"
+	@echo "... src/coordinator/report_writer.o"
+	@echo "... src/coordinator/report_writer.i"
+	@echo "... src/coordinator/report_writer.s"
+	@echo "... src/db/pg_client.o"
+	@echo "... src/db/pg_client.i"
+	@echo "... src/db/pg_client.s"
+	@echo "... src/db/sql_template.o"
+	@echo "... src/db/sql_template.i"
+	@echo "... src/db/sql_template.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/schema_detect.o"
-	@echo "... src/schema_detect.i"
-	@echo "... src/schema_detect.s"
-	@echo "... src/serialize.o"
-	@echo "... src/serialize.i"
-	@echo "... src/serialize.s"
+	@echo "... src/worker/discovery.o"
+	@echo "... src/worker/discovery.i"
+	@echo "... src/worker/discovery.s"
+	@echo "... src/worker/executor.o"
+	@echo "... src/worker/executor.i"
+	@echo "... src/worker/executor.s"
+	@echo "... src/worker/worker.o"
+	@echo "... src/worker/worker.i"
+	@echo "... src/worker/worker.s"
 .PHONY : help
 
 

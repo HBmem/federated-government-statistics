@@ -3,25 +3,25 @@
 
   "schemas": {
     "A": {
-      "population": "Queries/templates/schema_a/population.sql",
-      "demographics": "Queries/templates/schema_a/demographics.sql",
-      "income": "Queries/templates/schema_a/income.sql",
-      "age": "Queries/templates/schema_a/age.sql",
-      "unemployment": "Queries/templates/schema_a/unemployment.sql"
+      "population": "../queries/templates/schema_a/population.sql",
+      "demographics": "../queries/templates/schema_a/demographics.sql",
+      "income": "../queries/templates/schema_a/income.sql",
+      "age": "../queries/templates/schema_a/age.sql",
+      "unemployment": "../queries/templates/schema_a/unemployment.sql"
     },
     "B": {
-      "population": "Queries/templates/schema_b/population.sql",
-      "demographics": "Queries/templates/schema_b/demographics.sql",
-      "income": "Queries/templates/schema_b/income.sql",
-      "age": "Queries/templates/schema_b/age.sql",
-      "unemployment": "Queries/templates/schema_b/unemployment.sql"
+      "population": "../queries/templates/schema_b/population.sql",
+      "demographics": "../queries/templates/schema_b/demographics.sql",
+      "income": "../queries/templates/schema_b/income.sql",
+      "age": "../queries/templates/schema_b/age.sql",
+      "unemployment": "../queries/templates/schema_b/unemployment.sql"
     },
     "C": {
-      "population": "Queries/templates/schema_c/population.sql",
-      "demographics": "Queries/templates/schema_c/demographics.sql",
-      "income": "Queries/templates/schema_c/income.sql",
-      "age": "Queries/templates/schema_c/age.sql",
-      "unemployment": "Queries/templates/schema_c/unemployment.sql"
+      "population": "../queries/templates/schema_c/population.sql",
+      "demographics": "../queries/templates/schema_c/demographics.sql",
+      "income": "../queries/templates/schema_c/income.sql",
+      "age": "../queries/templates/schema_c/age.sql",
+      "unemployment": "../queries/templates/schema_c/unemployment.sql"
     }
   }
 }
