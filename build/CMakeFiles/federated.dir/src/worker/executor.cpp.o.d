@@ -1,8 +1,8 @@
 CMakeFiles/federated.dir/src/worker/executor.cpp.o: \
  /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/executor.cpp \
  /usr/include/stdc-predef.h \
- /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/executor.hpp \
- /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/../common/config.hpp \
+ /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/./executor.hpp \
+ /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/./../common/config.hpp \
  /usr/include/c++/13/string /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -129,7 +129,7 @@ CMakeFiles/federated.dir/src/worker/executor.cpp.o: \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
- /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/../common/json.hpp \
+ /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/./../common/./json.hpp \
  /usr/include/nlohmann/json.hpp /usr/include/c++/13/algorithm \
  /usr/include/c++/13/bits/stl_algo.h \
  /usr/include/c++/13/bits/algorithmfwd.h \
@@ -291,10 +291,11 @@ CMakeFiles/federated.dir/src/worker/executor.cpp.o: \
  /usr/include/nlohmann/ordered_map.hpp /usr/include/c++/13/any \
  /usr/include/nlohmann/detail/macro_unscope.hpp \
  /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
- /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/../db/pg_client.hpp \
+ /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/./../db/pg_client.hpp \
  /usr/include/postgresql/libpq-fe.h \
  /usr/include/postgresql/postgres_ext.h \
  /usr/include/postgresql/pg_config_ext.h \
- /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/../common/logging.hpp \
+ /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/./../common/logging.hpp \
  /usr/include/c++/13/iostream \
- /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/../db/sql_template.hpp
+ /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/../db/sql_template.hpp \
+ /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/worker/../common/metrics.hpp

@@ -22,6 +22,7 @@ public:
 
   PGresult* exec(const std::string& sql);
   void exec_ok(const std::string& sql);
+  void cancel();
 
   static std::string conninfo(
       const std::string& host,

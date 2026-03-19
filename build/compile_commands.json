@@ -19,6 +19,12 @@
 },
 {
   "directory": "/home/hbrissett/Documents/tcss-558/federated-government-statistics/build",
+  "command": "/usr/bin/c++  -I/usr/include/postgresql -I/home/hbrissett/Documents/tcss-558/federated-government-statistics/src -isystem /usr/lib/x86_64-linux-gnu/openmpi/include -isystem /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles/federated.dir/src/common/metrics.cpp.o -c /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/common/metrics.cpp",
+  "file": "/home/hbrissett/Documents/tcss-558/federated-government-statistics/src/common/metrics.cpp",
+  "output": "CMakeFiles/federated.dir/src/common/metrics.cpp.o"
+},
+{
+  "directory": "/home/hbrissett/Documents/tcss-558/federated-government-statistics/build",
   "command": "/usr/bin/c++  -I/usr/include/postgresql -I/home/hbrissett/Documents/tcss-558/federated-government-statistics/src -isystem /usr/lib/x86_64-linux-gnu/openmpi/include -isystem /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles/federated.dir/src/db/pg_client.cpp.o -c /home/hbrissett/Documents/tcss-558/federated-government-statistics/src/db/pg_client.cpp",
   "file": "/home/hbrissett/Documents/tcss-558/federated-government-statistics/src/db/pg_client.cpp",
   "output": "CMakeFiles/federated.dir/src/db/pg_client.cpp.o"

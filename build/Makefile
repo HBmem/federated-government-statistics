@@ -153,6 +153,30 @@ src/common/config.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/common/config.cpp.s
 .PHONY : src/common/config.cpp.s
 
+src/common/metrics.o: src/common/metrics.cpp.o
+.PHONY : src/common/metrics.o
+
+# target to build an object file
+src/common/metrics.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/common/metrics.cpp.o
+.PHONY : src/common/metrics.cpp.o
+
+src/common/metrics.i: src/common/metrics.cpp.i
+.PHONY : src/common/metrics.i
+
+# target to preprocess a source file
+src/common/metrics.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/common/metrics.cpp.i
+.PHONY : src/common/metrics.cpp.i
+
+src/common/metrics.s: src/common/metrics.cpp.s
+.PHONY : src/common/metrics.s
+
+# target to generate assembly for a file
+src/common/metrics.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/federated.dir/build.make CMakeFiles/federated.dir/src/common/metrics.cpp.s
+.PHONY : src/common/metrics.cpp.s
+
 src/common/mpi_codec.o: src/common/mpi_codec.cpp.o
 .PHONY : src/common/mpi_codec.o
 
@@ -381,6 +405,9 @@ help:
 	@echo "... src/common/config.o"
 	@echo "... src/common/config.i"
 	@echo "... src/common/config.s"
+	@echo "... src/common/metrics.o"
+	@echo "... src/common/metrics.i"
+	@echo "... src/common/metrics.s"
 	@echo "... src/common/mpi_codec.o"
 	@echo "... src/common/mpi_codec.i"
 	@echo "... src/common/mpi_codec.s"

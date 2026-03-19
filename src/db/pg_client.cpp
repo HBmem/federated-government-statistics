@@ -35,6 +35,16 @@ void PgClient::exec_ok(const std::string& sql) {
   PQclear(r);
 }
 
+void PgClient::cancel() {
+  if (!conn_) return;
+  PGcancel* cancel = PQgetCancel(conn_);
+  if (cancel) {
+    char errbuf[256];
+    PQcancel(cancel, errbuf, sizeof(errbuf));
+    PQfreeCancel(cancel);
+  }
+}
+
 void PgClient::require_ok(PGresult* r, const std::string& sql) {
   if (!r) throw std::runtime_error("Postgres returned null PGresult for SQL: " + sql);
 

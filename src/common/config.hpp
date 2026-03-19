@@ -4,7 +4,7 @@
 #include <unordered_map>
 #include <vector>
 
-#include "json.hpp"
+#include "./json.hpp"
 
 /*
   Centralized configuration structures.
@@ -43,6 +43,13 @@ struct RunConfig {
   std::string category = "demographic";
   std::string output_dir = "output/runs";
   bool include_node_payloads = true;
+};
+
+struct PerformanceConfig {
+  bool capture_process_metrics = true;
+  bool capture_query_explain_metrics = true;
+  bool explain_analyze = true;
+  bool explain_buffers = true;
 };
 
 struct FaultConfig {
@@ -88,6 +95,7 @@ struct AppConfig {
 
   // Loaded from files
   RunConfig run;
+  PerformanceConfig performance;
   FaultConfig fault;
   DbTuningConfig db;
   MetricsConfig metrics;

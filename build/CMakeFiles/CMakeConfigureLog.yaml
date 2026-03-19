@@ -1007,3 +1007,137 @@ events:
         
       exitCode: 0
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "CMakeLists.txt:9 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/CMakeScratch/TryCompile-TctjkQ"
+      binary: "/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/CMakeScratch/TryCompile-TctjkQ"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/CMakeScratch/TryCompile-TctjkQ'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_ddf2f/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_ddf2f.dir/build.make CMakeFiles/cmTC_ddf2f.dir/build
+        gmake[1]: Entering directory '/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/CMakeScratch/TryCompile-TctjkQ'
+        Building CXX object CMakeFiles/cmTC_ddf2f.dir/test_mpi.cpp.o
+        /usr/bin/c++  -isystem /usr/lib/x86_64-linux-gnu/openmpi/include -isystem /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi -std=gnu++17 -o CMakeFiles/cmTC_ddf2f.dir/test_mpi.cpp.o -c /home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/CMakeScratch/TryCompile-TctjkQ/test_mpi.cpp
+        Linking CXX executable cmTC_ddf2f
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ddf2f.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_ddf2f.dir/test_mpi.cpp.o -o cmTC_ddf2f  -Wl,-rpath,/usr/lib/x86_64-linux-gnu/openmpi/lib /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi_cxx.so /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so 
+        gmake[1]: Leaving directory '/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/CMakeScratch/TryCompile-TctjkQ'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1672 (_MPI_try_staged_settings)"
+      - "CMakeLists.txt:9 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/CMakeScratch/TryCompile-Fbcdh0"
+      binary: "/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/CMakeScratch/TryCompile-Fbcdh0"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: '/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/CMakeScratch/TryCompile-Fbcdh0'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_1c7cd/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_1c7cd.dir/build.make CMakeFiles/cmTC_1c7cd.dir/build
+        gmake[1]: Entering directory '/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/CMakeScratch/TryCompile-Fbcdh0'
+        Building CXX object CMakeFiles/cmTC_1c7cd.dir/test_mpi.cpp.o
+        /usr/bin/c++  -isystem /usr/lib/x86_64-linux-gnu/openmpi/include -isystem /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi -std=gnu++17 -o CMakeFiles/cmTC_1c7cd.dir/test_mpi.cpp.o -c /home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/CMakeScratch/TryCompile-Fbcdh0/test_mpi.cpp
+        Linking CXX executable cmTC_1c7cd
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1c7cd.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_1c7cd.dir/test_mpi.cpp.o -o cmTC_1c7cd  -Wl,-rpath,/usr/lib/x86_64-linux-gnu/openmpi/lib /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi_cxx.so /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so 
+        gmake[1]: Leaving directory '/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/CMakeScratch/TryCompile-Fbcdh0'
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "CMakeLists.txt:9 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/CMakeScratch/TryCompile-tW42bZ"
+      binary: "/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/CMakeScratch/TryCompile-tW42bZ"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/CMakeScratch/TryCompile-tW42bZ'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_5cd29/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_5cd29.dir/build.make CMakeFiles/cmTC_5cd29.dir/build
+        gmake[1]: Entering directory '/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/CMakeScratch/TryCompile-tW42bZ'
+        Building CXX object CMakeFiles/cmTC_5cd29.dir/test_mpi.cpp.o
+        /usr/bin/c++  -isystem /usr/lib/x86_64-linux-gnu/openmpi/include -isystem /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi -std=gnu++17 -o CMakeFiles/cmTC_5cd29.dir/test_mpi.cpp.o -c /home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/CMakeScratch/TryCompile-tW42bZ/test_mpi.cpp
+        Linking CXX executable cmTC_5cd29
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5cd29.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_5cd29.dir/test_mpi.cpp.o -o cmTC_5cd29  -Wl,-rpath,/usr/lib/x86_64-linux-gnu/openmpi/lib /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi_cxx.so /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so 
+        gmake[1]: Leaving directory '/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/CMakeScratch/TryCompile-tW42bZ'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1672 (_MPI_try_staged_settings)"
+      - "CMakeLists.txt:9 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/CMakeScratch/TryCompile-XpuVTB"
+      binary: "/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/CMakeScratch/TryCompile-XpuVTB"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: '/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/CMakeScratch/TryCompile-XpuVTB'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_e0f98/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_e0f98.dir/build.make CMakeFiles/cmTC_e0f98.dir/build
+        gmake[1]: Entering directory '/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/CMakeScratch/TryCompile-XpuVTB'
+        Building CXX object CMakeFiles/cmTC_e0f98.dir/test_mpi.cpp.o
+        /usr/bin/c++  -isystem /usr/lib/x86_64-linux-gnu/openmpi/include -isystem /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi -std=gnu++17 -o CMakeFiles/cmTC_e0f98.dir/test_mpi.cpp.o -c /home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/CMakeScratch/TryCompile-XpuVTB/test_mpi.cpp
+        Linking CXX executable cmTC_e0f98
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e0f98.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_e0f98.dir/test_mpi.cpp.o -o cmTC_e0f98  -Wl,-rpath,/usr/lib/x86_64-linux-gnu/openmpi/lib /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi_cxx.so /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so 
+        gmake[1]: Leaving directory '/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/CMakeScratch/TryCompile-XpuVTB'
+        
+      exitCode: 0
+...

@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/federated.dir/src/common/config.cpp.o"
   "CMakeFiles/federated.dir/src/common/config.cpp.o.d"
+  "CMakeFiles/federated.dir/src/common/metrics.cpp.o"
+  "CMakeFiles/federated.dir/src/common/metrics.cpp.o.d"
   "CMakeFiles/federated.dir/src/common/mpi_codec.cpp.o"
   "CMakeFiles/federated.dir/src/common/mpi_codec.cpp.o.d"
   "CMakeFiles/federated.dir/src/coordinator/coordinator.cpp.o"

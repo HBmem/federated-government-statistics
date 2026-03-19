@@ -117,6 +117,14 @@ Json build(const AppConfig& cfg,
       const Json& res = results_by_rank.at(r);
       node_obj["results"] = cfg.run.include_node_payloads ? res : Json::object();
 
+      if (res.contains("worker_metrics")) {
+        node_obj["worker_metrics"] = res["worker_metrics"];
+      }
+
+      if (res.contains("query_metrics")) {
+        node_obj["query_metrics"] = res["query_metrics"];
+      }
+
       // Aggregate across metrics returned.
       if (res.contains("metrics")) {
         const Json& metrics = res["metrics"];

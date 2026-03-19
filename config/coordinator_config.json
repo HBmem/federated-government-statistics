@@ -9,14 +9,21 @@
         "include_node_payloads": true
     },
 
+    "performance": {
+        "capture_process_metrics": true,
+        "capture_query_explain_metrics": true,
+        "explain_analyze": true,
+        "explain_buffers": true
+    },
+
     "fault_tolerance": {
         "worker_response_timeout_sec": 20,
-        "worker_query_timeout_sec": 15,
+        "worker_query_timeout_sec": 25,
         "max_retries_per_phase": 1
     },
 
     "db": {
-        "statement_timeout_ms": 12000,
+        "statement_timeout_ms": 20000,
         "lock_timeout_ms": 3000
     },
 

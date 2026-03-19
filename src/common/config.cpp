@@ -85,6 +85,12 @@ static void apply_coordinator_config(AppConfig& cfg, const Json& j) {
   cfg.run.output_dir = j["run"]["output_dir"].get<std::string>();
   cfg.run.include_node_payloads = j["run"]["include_node_payloads"].get<bool>();
 
+    // performance
+  cfg.performance.capture_process_metrics = j["performance"]["capture_process_metrics"].get<bool>();
+  cfg.performance.capture_query_explain_metrics = j["performance"]["capture_query_explain_metrics"].get<bool>();
+  cfg.performance.explain_analyze = j["performance"]["explain_analyze"].get<bool>();
+  cfg.performance.explain_buffers = j["performance"]["explain_buffers"].get<bool>();
+
   // fault_tolerance
   cfg.fault.worker_response_timeout_sec = j["fault_tolerance"]["worker_response_timeout_sec"].get<int>();
   cfg.fault.worker_query_timeout_sec    = j["fault_tolerance"]["worker_query_timeout_sec"].get<int>();

@@ -20,6 +20,7 @@ add_executable(federated
 
   src/common/config.cpp
   src/common/mpi_codec.cpp
+  src/common/metrics.cpp
 
   src/db/pg_client.cpp
   src/db/sql_template.cpp
