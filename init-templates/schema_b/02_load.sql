@@ -1,4 +1,3 @@
--- 02_load.sql (medium2)
 -- Loads Schema B CSV into person_record.
 
 COPY person_record(

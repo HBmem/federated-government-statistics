@@ -4,6 +4,7 @@
 #include <future>
 #include <thread>
 #include <chrono>
+#include <cstdlib>
 
 #include "../common/metrics.hpp"
 #include "../common/mpi_codec.hpp"
@@ -139,7 +140,10 @@ void Worker::run() {
           }
         }
         auto now = std::chrono::steady_clock::now();
-        if (std::chrono::duration_cast<std::chrono::seconds>(now - start_time).count() > 30) {
+        int timeout_sec = cfg_.fault.worker_query_timeout_sec;
+        if (std::chrono::duration_cast<std::chrono::seconds>(now - start_time).count() > timeout_sec) {
+          log_.error("TIMEOUT: Query execution exceeded " + std::to_string(timeout_sec) + " seconds on rank=" + std::to_string(rank_) +
+                     " county_fips=" + node.county_fips + ". Cancelling query and exiting program.");
           db.cancel();
           std::this_thread::sleep_for(std::chrono::milliseconds(500));
           result = Json::object();
@@ -148,7 +152,11 @@ void Worker::run() {
           result["county_fips"] = node.county_fips;
           result["schema_type"] = schema_type;
           result["error"] = "Worker execution timeout - query cancelled";
-          goto after_execute;
+          
+          // Log the timeout status and exit the program
+          log_.error("Worker rank=" + std::to_string(rank_) + " experienced execution timeout. Exiting.");
+          mpi_codec::send_string(0, mpi_codec::TAG_DATA, result.dump(), MPI_COMM_WORLD);
+          std::exit(EXIT_FAILURE);
         }
       }
       result = fut.get();

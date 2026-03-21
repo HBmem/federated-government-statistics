@@ -1,4 +1,3 @@
--- 01_schema.sql (metro)
 -- Creates Schema A (multi-table) for join-heavy workloads.
 
 -- pgcrypto is used to support UUID utilities if needed.

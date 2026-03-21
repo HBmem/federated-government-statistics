@@ -1,4 +1,3 @@
--- 01_schema.sql (rural2)
 -- Same schema as rural1 for consistent comparisons.
 
 CREATE TABLE IF NOT EXISTS citizen (

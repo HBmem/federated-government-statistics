@@ -1,4 +1,3 @@
--- 01_schema.sql (medium1)
 -- Creates Schema B (single-table) for scan-heavy workloads with string parsing.
 
 CREATE TABLE IF NOT EXISTS person_record (

@@ -17,13 +17,13 @@
     },
 
     "fault_tolerance": {
-        "worker_response_timeout_sec": 20,
-        "worker_query_timeout_sec": 25,
+        "worker_response_timeout_sec": 60,
+        "worker_query_timeout_sec": 600,
         "max_retries_per_phase": 1
     },
 
     "db": {
-        "statement_timeout_ms": 20000,
+        "statement_timeout_ms": 600000,
         "lock_timeout_ms": 3000
     },
 

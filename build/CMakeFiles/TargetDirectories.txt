@@ -1,3 +1,0 @@
-/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/federated.dir
-/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/edit_cache.dir
-/home/hbrissett/Documents/tcss-558/federated-government-statistics/build/CMakeFiles/rebuild_cache.dir

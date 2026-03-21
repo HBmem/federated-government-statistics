@@ -1,4 +1,3 @@
--- 02_load.sql (metro)
 -- Loads CSV data files shipped alongside init scripts.
 
 -- These CSV files are expected to be present in the init directory mounted at:

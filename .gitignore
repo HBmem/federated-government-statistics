@@ -13,11 +13,33 @@ venv.bak/
 
 # Data files
 data-generation/data/
-data-generation/reports/
+init/metro/
+init/medium1/
+init/medium2/
+init/rural1/
+init/rural2/
 
 # Output files
-output/runs/
+output/
 
 # Remove old version of code
 old-files/
 debug/
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Build directories
+build/
+Build/
+build-*/
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+install_manifest.txt 
+compile_commands.json

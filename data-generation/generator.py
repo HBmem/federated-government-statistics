@@ -17,11 +17,12 @@ import csv
 import json
 import os
 import random
-import string
 import uuid
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta
 from typing import Any, Dict, List, Optional, Tuple
+
+from faker import Faker
 
 
 # -------------------------
@@ -77,14 +78,6 @@ def prob(rng: random.Random, p: float) -> bool:
 # Synthetic value generation
 # -------------------------
 
-FIRST_NAMES = [
-    "Ariana", "Marc", "Jordan", "Priya", "Noah", "Mia", "Liam", "Sofia", "Ethan",
-    "Zoe", "Camila", "Kai", "Ava", "Leo", "Nina", "Mateo", "Iris", "Amir"
-]
-LAST_NAMES = [
-    "Meza", "Salas", "Nguyen", "Smith", "Patel", "Kim", "Johnson", "Brown", "Lopez",
-    "Garcia", "Chen", "Williams", "Davis", "Martinez", "Taylor"
-]
 HOUSING_TYPES = ["Apartment", "House", "Townhome", "MobileHome", "Condo"]
 VERIFICATION_SOURCES = ["DMV", "Medicaid", "School", "Utilities", "Tax", "Employer"]
 GENDER_CODES_B = ["M", "F", "X"]
@@ -93,32 +86,58 @@ ETH_FLAGS_B = ["Y", "N"]
 EMPLOYMENT_STATUSES = ["Employed", "Unemployed", "NotInLaborForce"]
 
 
-def rand_zip(rng: random.Random) -> str:
-    """Generate a 5-digit ZIP code string."""
-    return "".join(rng.choice(string.digits) for _ in range(5))
+def build_faker(seed: int) -> Faker:
+    """Create and seed a Faker instance for reproducible synthetic data."""
+    fake = Faker("en_US")
+    Faker.seed(seed)
+    fake.seed_instance(seed)
+    return fake
 
 
-def rand_street(rng: random.Random) -> str:
-    """Generate a synthetic street address line."""
-    num = rng.randint(1, 99999)
-    street = rng.choice(["Cervantes", "Smith", "Aguilar", "Pine", "Union", "Rainier", "Madison"])
-    suffix = rng.choice(["St", "Ave", "Blvd", "Rd", "Ln", "Way", "Common", "Forks"])
-    extra = rng.choice(["", " Apt. " + str(rng.randint(1, 999)), " Unit " + str(rng.randint(1, 999))])
-    return f"{num} {street} {suffix}{extra}".strip()
+def rand_uuid(fake: Faker) -> str:
+    """Generate a UUID string using Faker."""
+    return fake.uuid4()
 
 
-def rand_city(rng: random.Random) -> str:
-    """Generate a synthetic city name."""
-    return rng.choice(["Seattle", "Tacoma", "Everett", "Spokane", "Olympia", "South Donna", "Thomasbury", "Jonesland"])
+def rand_zip(fake: Faker) -> str:
+    """Generate a 5-digit ZIP code string using Faker."""
+    return fake.postcode()[:5]
 
 
-def rand_timestamp_utc(rng: random.Random, min_year: int, max_year: int) -> str:
-    """Generate an ISO-ish timestamp string with UTC offset."""
+def rand_street(fake: Faker, rng: random.Random) -> str:
+    """
+    Generate a synthetic street address line using Faker.
+
+    Keeps the output to a single-line street-like format.
+    """
+    base = fake.street_address().replace("\n", " ")
+    if prob(rng, 0.18):
+        base += f" Apt. {rng.randint(1, 999)}"
+    elif prob(rng, 0.10):
+        base += f" Unit {rng.randint(1, 999)}"
+    return base
+
+
+def rand_city(fake: Faker) -> str:
+    """Generate a city using Faker."""
+    return fake.city()
+
+
+def rand_first_name(fake: Faker) -> str:
+    """Generate a first name using Faker."""
+    return fake.first_name()
+
+
+def rand_last_name(fake: Faker) -> str:
+    """Generate a last name using Faker."""
+    return fake.last_name()
+
+
+def rand_timestamp_utc(fake: Faker, rng: random.Random, min_year: int, max_year: int) -> str:
+    """Generate a timestamp string with UTC offset using a bounded datetime range."""
     start = datetime(min_year, 1, 1)
     end = datetime(max_year, 12, 31, 23, 59, 59)
-    delta = end - start
-    dt = start + timedelta(seconds=rng.randint(0, int(delta.total_seconds())))
-    # Store with "+00:00" to match your sample.
+    dt = fake.date_time_between(start_date=start, end_date=end)
     return dt.strftime("%Y-%m-%d %H:%M:%S+00:00")
 
 
@@ -153,7 +172,6 @@ def pick_from_dist(dist: Dict[str, float], rng: random.Random) -> str:
 
 def income_usd(rng: random.Random) -> int:
     """Generate a plausible annual household income."""
-    # Simple log-ish distribution: many middle incomes, fewer extremes.
     base = int(rng.triangular(15000, 220000, 65000))
     return max(0, base)
 
@@ -176,12 +194,11 @@ def income_bracket_from_income(inc: int) -> str:
 
 
 def compute_has_job(employment_status: str, rng: random.Random) -> bool:
-    """Derive has_job from employment status with a small inconsistency chance handled later."""
+    """Derive has_job from employment status."""
     if employment_status == "Employed":
         return True
     if employment_status == "Unemployed":
         return False
-    # Not in labor force => usually false
     return False
 
 
@@ -201,9 +218,12 @@ def inject_bad_data_row(row: Dict[str, Any], schema: str, bad_type: str, rng: ra
     """
     Mutate a row in-place to introduce a specific kind of bad data.
 
-    The mutation is schema-aware but intentionally imperfect.
+    Important rule:
+    - Schema A must remain COPY-safe for typed Postgres columns.
+    - Schema B may contain parse-invalid strings because most fields are TEXT.
+    - Schema C row-level columns must remain COPY-safe; invalid values should mostly live inside JSON.
     """
-    # Helper fields: try multiple possible keys depending on schema output.
+
     def set_if_exists(keys: List[str], value: Any) -> bool:
         for k in keys:
             if k in row:
@@ -211,68 +231,93 @@ def inject_bad_data_row(row: Dict[str, Any], schema: str, bad_type: str, rng: ra
                 return True
         return False
 
-    if bad_type == "wrong_type":
-        # Put a non-date string in a date field or a non-numeric in income.
-        if not set_if_exists(["dob", "dob_str"], "not-a-date"):
-            set_if_exists(["income_usd", "income_bracket"], "NaN")
+    if schema == "A":
+        if bad_type == "wrong_type":
+            if not set_if_exists(["verification_source"], "???"):
+                set_if_exists(["race", "ethnicity", "sex"], "???")
 
-    elif bad_type == "invalid_age":
-        # Set DOB to a future date.
-        future = date.today() + timedelta(days=rng.randint(30, 3650))
-        set_if_exists(["dob"], future.isoformat())
-        set_if_exists(["dob_str"], future.isoformat())
+        elif bad_type == "invalid_age":
+            future = date.today() + timedelta(days=rng.randint(30, 3650))
+            set_if_exists(["dob"], future.isoformat())
 
-    elif bad_type == "negative_income":
-        set_if_exists(["income_usd"], -rng.randint(1, 50000))
-        # Schema B stores bracket; simulate nonsense bracket
-        set_if_exists(["income_bracket"], "-10k")
+        elif bad_type == "negative_income":
+            set_if_exists(["income_usd"], -rng.randint(1, 50000))
 
-    elif bad_type == "nonsense_zip":
-        # Invalid ZIP (non-digits or wrong length)
-        set_if_exists(["zip"], "ABCDE")
-        # Schema B full address is one string; append garbage zip
-        if "full_address" in row:
-            row["full_address"] = row["full_address"].rsplit(" ", 1)[0] + " Z1P!!"
+        elif bad_type == "nonsense_zip":
+            set_if_exists(["zip"], "ABCDE")
 
-    elif bad_type == "inconsistent_codes":
-        # Race/gender/eth combos that don't match the normal coding scheme.
-        set_if_exists(["sex"], "Z")
-        set_if_exists(["gender_code"], "Q")
-        set_if_exists(["race"], "???")
-        set_if_exists(["race_code"], "9")
-        set_if_exists(["ethnicity"], "??")
-        set_if_exists(["eth_flag"], "U")
+        elif bad_type == "inconsistent_codes":
+            set_if_exists(["sex"], "Z")
+            set_if_exists(["race"], "???")
+            set_if_exists(["ethnicity"], "??")
 
-    elif bad_type == "stale_timestamp":
-        # Updated timestamp far in the past.
-        set_if_exists(["updated_ts_utc", "created_at_utc"], "1990-01-01 00:00:00+00:00")
+        elif bad_type == "stale_timestamp":
+            set_if_exists(["created_at_utc"], "1990-01-01 00:00:00+00:00")
 
-    elif bad_type == "move_out_before_move_in":
-        # Swap moved-in/out ordering by setting move_out earlier.
-        # Works best on schema A/B where these fields exist as strings.
-        if "moved_in_str" in row and row["moved_in_str"]:
-            row["move_out_str"] = "01/01/2010"
-        if "moved_in_date" in row and row["moved_in_date"]:
-            row["move_out_date"] = "2010-01-01"
+        elif bad_type == "move_out_before_move_in":
+            if "moved_in_date" in row and row["moved_in_date"]:
+                row["move_out_date"] = "2010-01-01"
 
-    elif bad_type == "death_before_birth":
-        # Death date earlier than DOB.
-        set_if_exists(["death_date", "death_str"], "1900-01-01")
-        set_if_exists(["dob", "dob_str"], "2000-01-01")
+        elif bad_type == "death_before_birth":
+            set_if_exists(["death_date"], "1900-01-01")
+            set_if_exists(["dob"], "2000-01-01")
 
-    elif bad_type == "active_inconsistent_with_dates":
-        # Mark active but also set move_out_date.
-        set_if_exists(["active_status"], True)
-        set_if_exists(["active_flag"], "Y")
-        set_if_exists(["move_out_date", "move_out_str"], "2020-01-01")
+        elif bad_type == "active_inconsistent_with_dates":
+            set_if_exists(["active_status"], True)
+            set_if_exists(["move_out_date"], "2020-01-01")
 
-    elif bad_type == "missing_verification":
-        # Remove verification info.
-        set_if_exists(["verification_source"], "")
-        set_if_exists(["last_verified_date", "last_verified_str"], "")
+        elif bad_type == "missing_verification":
+            set_if_exists(["verification_source"], "")
+            set_if_exists(["last_verified_date"], "")
 
-    # For Schema C (JSON), the "row" we write contains a JSON string in profile_json.
-    # We inject JSON badness separately where profile_json is constructed.
+        return
+
+    if schema == "B":
+        if bad_type == "wrong_type":
+            if not set_if_exists(["dob_str"], "not-a-date"):
+                set_if_exists(["income_bracket"], "NaN")
+
+        elif bad_type == "invalid_age":
+            future = date.today() + timedelta(days=rng.randint(30, 3650))
+            set_if_exists(["dob_str"], future.isoformat())
+
+        elif bad_type == "negative_income":
+            set_if_exists(["income_bracket"], "-10k")
+
+        elif bad_type == "nonsense_zip":
+            if "full_address" in row:
+                row["full_address"] = row["full_address"].rsplit(" ", 1)[0] + " Z1P!!"
+
+        elif bad_type == "inconsistent_codes":
+            set_if_exists(["gender_code"], "Q")
+            set_if_exists(["race_code"], "9")
+            set_if_exists(["eth_flag"], "U")
+
+        elif bad_type == "stale_timestamp":
+            set_if_exists(["updated_ts_utc"], "1990-01-01 00:00:00+00:00")
+
+        elif bad_type == "move_out_before_move_in":
+            if "moved_in_str" in row and row["moved_in_str"]:
+                row["move_out_str"] = "01/01/2010"
+
+        elif bad_type == "death_before_birth":
+            set_if_exists(["death_str"], "1900-01-01")
+            set_if_exists(["dob_str"], "2000-01-01")
+
+        elif bad_type == "active_inconsistent_with_dates":
+            set_if_exists(["active_flag"], "Y")
+            set_if_exists(["move_out_str"], "2020-01-01")
+
+        elif bad_type == "missing_verification":
+            set_if_exists(["verification_source"], "")
+            set_if_exists(["last_verified_str"], "")
+
+        return
+
+    if schema == "C":
+        if bad_type == "stale_timestamp":
+            set_if_exists(["created_at_utc"], "1990-01-01 00:00:00+00:00")
+        return
 
 
 def inject_bad_data_into_profile(profile: Dict[str, Any], bad_type: str, rng: random.Random) -> None:
@@ -290,7 +335,6 @@ def inject_bad_data_into_profile(profile: Dict[str, Any], bad_type: str, rng: ra
         profile.setdefault("demographics", {})["sex"] = "Z"
         profile.setdefault("demographics", {})["race"] = "???"
     elif bad_type == "stale_timestamp":
-        # Timestamp stored outside profile; handled at row level.
         pass
     elif bad_type == "move_out_before_move_in":
         profile.setdefault("residency", {})["moved_in_date"] = "2022-01-01"
@@ -318,7 +362,12 @@ class CountySpec:
     rows: int
 
 
-def build_schema_a(county: CountySpec, cfg: Dict[str, Any], rng: random.Random) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], List[Dict[str, Any]]]:
+def build_schema_a(
+    county: CountySpec,
+    cfg: Dict[str, Any],
+    rng: random.Random,
+    fake: Faker
+) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], List[Dict[str, Any]]]:
     """
     Build Schema A tables:
     - address(address_id, street, city, state, zip)
@@ -335,19 +384,16 @@ def build_schema_a(county: CountySpec, cfg: Dict[str, Any], rng: random.Random) 
     households: List[Dict[str, Any]] = []
     residents: List[Dict[str, Any]] = []
 
-    # Simple approach: each resident gets its own household/address with a chance of sharing.
-    # This avoids needing complex household size consistency logic, while still enabling joins.
     share_household_prob = 0.30
 
     household_pool: List[Dict[str, Any]] = []
     address_pool: List[Dict[str, Any]] = []
 
     for _ in range(county.rows):
-        # Possibly reuse household/address to create joins.
         if household_pool and prob(rng, share_household_prob):
             hh = rng.choice(household_pool)
         else:
-            hh_id = str(uuid.uuid4())
+            hh_id = rand_uuid(fake)
             inc = income_usd(rng)
             hh = {
                 "household_id": hh_id,
@@ -355,7 +401,7 @@ def build_schema_a(county: CountySpec, cfg: Dict[str, Any], rng: random.Random) 
                 "hh_size": rng.randint(1, 6),
                 "income_usd": inc,
                 "housing_type": rng.choice(HOUSING_TYPES),
-                "created_at_utc": rand_timestamp_utc(rng, min_year, max_year),
+                "created_at_utc": rand_timestamp_utc(fake, rng, min_year, max_year),
             }
             households.append(hh)
             household_pool.append(hh)
@@ -363,37 +409,32 @@ def build_schema_a(county: CountySpec, cfg: Dict[str, Any], rng: random.Random) 
         if address_pool and prob(rng, share_household_prob):
             addr = rng.choice(address_pool)
         else:
-            addr_id = str(uuid.uuid4())
+            addr_id = rand_uuid(fake)
             addr = {
                 "address_id": addr_id,
-                "street": rand_street(rng),
-                "city": rand_city(rng),
+                "street": rand_street(fake, rng),
+                "city": rand_city(fake),
                 "state": "WA",
-                "zip": rand_zip(rng)
+                "zip": rand_zip(fake)
             }
             addresses.append(addr)
             address_pool.append(addr)
 
         dob = rand_date(rng, 1930, 2008)
-        ref = rand_date(rng, 2024, max_year)
         emp_status = pick_from_dist(dist["employment_status"], rng)
         has_job = compute_has_job(emp_status, rng)
 
         moved_in = rand_date(rng, min_year, max_year)
-        # Move out sometimes.
         move_out = rand_date(rng, moved_in.year, max_year) if prob(rng, 0.22) else None
-        # Death sometimes.
         death = rand_date(rng, 2000, max_year) if prob(rng, 0.08) else None
 
-        active = True
-        if move_out is not None or death is not None:
-            active = False
+        active = not (move_out is not None or death is not None)
 
         resident = {
-            "resident_id": str(uuid.uuid4()),
+            "resident_id": rand_uuid(fake),
             "household_id": hh["household_id"],
-            "first_name": rng.choice(FIRST_NAMES),
-            "last_name": rng.choice(LAST_NAMES),
+            "first_name": rand_first_name(fake),
+            "last_name": rand_last_name(fake),
             "dob": dob.isoformat(),
             "sex": pick_from_dist(dist["sex"], rng),
             "race": pick_from_dist(dist["race"], rng),
@@ -413,7 +454,12 @@ def build_schema_a(county: CountySpec, cfg: Dict[str, Any], rng: random.Random) 
     return addresses, households, residents
 
 
-def build_schema_b(county: CountySpec, cfg: Dict[str, Any], rng: random.Random) -> List[Dict[str, Any]]:
+def build_schema_b(
+    county: CountySpec,
+    cfg: Dict[str, Any],
+    rng: random.Random,
+    fake: Faker
+) -> List[Dict[str, Any]]:
     """
     Build Schema B table person_record with many string fields and mixed date formats.
     """
@@ -432,27 +478,23 @@ def build_schema_b(county: CountySpec, cfg: Dict[str, Any], rng: random.Random) 
         emp_status = pick_from_dist(dist["employment_status"], rng)
         has_job = compute_has_job(emp_status, rng)
 
-        # Income stored as bracket in Schema B
         inc = income_usd(rng)
         bracket = income_bracket_from_income(inc)
 
-        active_flag = "Y"
-        if move_out is not None or death is not None:
-            active_flag = "N"
-
-        full_addr = f"{rand_street(rng)}, {rand_city(rng)}, WA {rand_zip(rng)}"
+        active_flag = "N" if (move_out is not None or death is not None) else "Y"
+        full_addr = f"{rand_street(fake, rng)}, {rand_city(fake)}, WA {rand_zip(fake)}"
 
         row = {
-            "person_uuid": str(uuid.uuid4()),
-            "county": county.name,  # Schema B stores county name, not fips
-            "dob_str": dob.isoformat(),  # often ISO, but bad data may change it
+            "person_uuid": rand_uuid(fake),
+            "county": county.name,
+            "dob_str": dob.isoformat(),
             "gender_code": rng.choice(GENDER_CODES_B),
             "race_code": rng.choice(RACE_CODES_B),
             "eth_flag": rng.choice(ETH_FLAGS_B),
             "income_bracket": bracket,
             "household_size": str(rng.randint(1, 6)),
             "full_address": full_addr,
-            "updated_ts_utc": rand_timestamp_utc(rng, min_year, max_year),
+            "updated_ts_utc": rand_timestamp_utc(fake, rng, min_year, max_year),
             "moved_in_str": format_date_multiple(moved_in, rng) or "",
             "move_out_str": format_date_multiple(move_out, rng) or "",
             "death_str": format_date_multiple(death, rng) or "",
@@ -467,7 +509,12 @@ def build_schema_b(county: CountySpec, cfg: Dict[str, Any], rng: random.Random) 
     return rows
 
 
-def build_schema_c(county: CountySpec, cfg: Dict[str, Any], rng: random.Random) -> List[Dict[str, Any]]:
+def build_schema_c(
+    county: CountySpec,
+    cfg: Dict[str, Any],
+    rng: random.Random,
+    fake: Faker
+) -> List[Dict[str, Any]]:
     """
     Build Schema C table citizen(doc_id, county_fips, profile_json, created_at_utc).
     """
@@ -487,12 +534,10 @@ def build_schema_c(county: CountySpec, cfg: Dict[str, Any], rng: random.Random) 
         has_job = compute_has_job(emp_status, rng)
         inc = income_usd(rng)
 
-        active_status = True
-        if move_out is not None or death is not None:
-            active_status = False
+        active_status = not (move_out is not None or death is not None)
 
         profile = {
-            "name": {"first": rng.choice(FIRST_NAMES), "last": rng.choice(LAST_NAMES)},
+            "name": {"first": rand_first_name(fake), "last": rand_last_name(fake)},
             "demographics": {
                 "dob": dob.isoformat(),
                 "sex": pick_from_dist(dist["sex"], rng),
@@ -500,15 +545,15 @@ def build_schema_c(county: CountySpec, cfg: Dict[str, Any], rng: random.Random) 
                 "ethnicity": pick_from_dist(dist["ethnicity"], rng)
             },
             "household": {
-                "hh_id": str(uuid.uuid4()),
+                "hh_id": rand_uuid(fake),
                 "hh_size": rng.randint(1, 6),
                 "income_usd": inc
             },
             "location": {
-                "street": rand_street(rng),
-                "city": rand_city(rng),
+                "street": rand_street(fake, rng),
+                "city": rand_city(fake),
                 "state": "WA",
-                "zip": rand_zip(rng)
+                "zip": rand_zip(fake)
             },
             "residency": {
                 "active_status": active_status,
@@ -525,10 +570,10 @@ def build_schema_c(county: CountySpec, cfg: Dict[str, Any], rng: random.Random) 
         }
 
         row = {
-            "doc_id": str(uuid.uuid4()),
+            "doc_id": rand_uuid(fake),
             "county_fips": county.fips,
             "profile_json": json.dumps(profile, ensure_ascii=False),
-            "created_at_utc": rand_timestamp_utc(rng, min_year, max_year)
+            "created_at_utc": rand_timestamp_utc(fake, rng, min_year, max_year)
         }
         rows.append(row)
 
@@ -556,21 +601,43 @@ def maybe_corrupt_rows_schema_a(
     weights: Dict[str, float],
     rng: random.Random
 ) -> None:
-    """Inject bad data into Schema A by corrupting residents mostly, occasionally household/address."""
+    """Inject load-safe bad data into Schema A."""
+
+    # Resident rows: most logical data-quality problems live here.
+    resident_safe_types = {
+        "wrong_type": weights.get("wrong_type", 0.0),
+        "invalid_age": weights.get("invalid_age", 0.0),
+        "inconsistent_codes": weights.get("inconsistent_codes", 0.0),
+        "move_out_before_move_in": weights.get("move_out_before_move_in", 0.0),
+        "death_before_birth": weights.get("death_before_birth", 0.0),
+        "active_inconsistent_with_dates": weights.get("active_inconsistent_with_dates", 0.0),
+        "missing_verification": weights.get("missing_verification", 0.0),
+    }
+
+    # Household rows: numeric/timestamp issues
+    household_safe_types = {
+        "negative_income": weights.get("negative_income", 0.0),
+        "stale_timestamp": weights.get("stale_timestamp", 0.0),
+    }
+
+    # Address rows: ZIP issues only
+    address_safe_types = {
+        "nonsense_zip": weights.get("nonsense_zip", 0.0),
+    }
+
     for r in residents:
         if prob(rng, bad_rate):
-            bad_type = weighted_choice(weights, rng)
+            bad_type = weighted_choice(resident_safe_types, rng)
             inject_bad_data_row(r, "A", bad_type, rng)
 
-    # Small chance to corrupt household/address too.
     for h in households:
         if prob(rng, bad_rate * 0.15):
-            bad_type = weighted_choice(weights, rng)
+            bad_type = weighted_choice(household_safe_types, rng)
             inject_bad_data_row(h, "A", bad_type, rng)
 
     for a in addresses:
         if prob(rng, bad_rate * 0.15):
-            bad_type = weighted_choice(weights, rng)
+            bad_type = weighted_choice(address_safe_types, rng)
             inject_bad_data_row(a, "A", bad_type, rng)
 
 
@@ -593,22 +660,20 @@ def maybe_corrupt_rows_schema_c(
     weights: Dict[str, float],
     rng: random.Random
 ) -> None:
-    """Inject bad data into Schema C rows (JSON profile + sometimes created_at_utc)."""
+    """Inject bad data into Schema C rows (mostly inside profile_json)."""
     for row in rows:
         if prob(rng, bad_rate):
             bad_type = weighted_choice(weights, rng)
-            # Profile JSON corruption
             try:
                 profile = json.loads(row["profile_json"])
                 inject_bad_data_into_profile(profile, bad_type, rng)
                 row["profile_json"] = json.dumps(profile, ensure_ascii=False)
             except Exception:
-                # If JSON already malformed, leave it; worker should treat as parse failure.
                 row["profile_json"] = row["profile_json"] + "}"
 
-        # Timestamp stale injection can be separate
+        # Stale timestamp is safe at row level
         if prob(rng, bad_rate * 0.10):
-            row["created_at_utc"] = "1990-01-01 00:00:00+00:00"
+            inject_bad_data_row(row, "C", "stale_timestamp", rng)
 
 
 def main() -> None:
@@ -623,6 +688,7 @@ def main() -> None:
         raise ValueError("bad_data_rate must be in [0,1]")
 
     rng = random.Random(seed)
+    fake = build_faker(seed)
 
     weights = cfg["bad_data_weights"]
     counties_cfg = cfg["counties"]
@@ -631,12 +697,11 @@ def main() -> None:
     ensure_dir(output_root)
 
     for county in counties:
-        # Schema A
         if cfg.get("generate_schema_a", True):
             out_dir = os.path.join(output_root, "schema_A", county.label)
             ensure_dir(out_dir)
 
-            addresses, households, residents = build_schema_a(county, cfg, rng)
+            addresses, households, residents = build_schema_a(county, cfg, rng, fake)
             maybe_corrupt_rows_schema_a(residents, households, addresses, bad_rate, weights, rng)
 
             write_csv(
@@ -661,12 +726,11 @@ def main() -> None:
                 residents
             )
 
-        # Schema B
         if cfg.get("generate_schema_b", True):
             out_dir = os.path.join(output_root, "schema_B", county.label)
             ensure_dir(out_dir)
 
-            rows = build_schema_b(county, cfg, rng)
+            rows = build_schema_b(county, cfg, rng, fake)
             maybe_corrupt_rows_schema_b(rows, bad_rate, weights, rng)
 
             write_csv(
@@ -680,12 +744,11 @@ def main() -> None:
                 rows
             )
 
-        # Schema C
         if cfg.get("generate_schema_c", True):
             out_dir = os.path.join(output_root, "schema_C", county.label)
             ensure_dir(out_dir)
 
-            rows = build_schema_c(county, cfg, rng)
+            rows = build_schema_c(county, cfg, rng, fake)
             maybe_corrupt_rows_schema_c(rows, bad_rate, weights, rng)
 
             write_csv(

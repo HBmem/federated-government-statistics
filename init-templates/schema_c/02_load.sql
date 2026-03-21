@@ -1,4 +1,3 @@
--- 02_load.sql (rural1)
 -- Loads Schema C CSV into citizen.
 
 COPY citizen(doc_id, county_fips, profile_json, created_at_utc)
